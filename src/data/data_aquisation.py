@@ -12,8 +12,10 @@ Download_Data: https://www.askpython.com/python/examples/pull-data-from-an-api
 def download_seasonal_data(season, path, game_type):
     """download data of a whole season"""
 
-
-    prev_game_number = '0000' # initialize  #0110
+    if game_type == 'regular_season': # initialize
+        prev_game_number = '0000'
+    elif game_type == 'playoff':
+        prev_game_number = '0110'
     prev_game_available = True
     game_id = '0000000000'
 
@@ -133,6 +135,6 @@ def write_to_file(parse_json, game_id, path):
 
 
 start = time.time()
-download_seasonal_data('2019', 'raw_data/2019/', 'regular_season')
+download_seasonal_data('2020', 'raw_data/2020/', 'playoff')
 end = time.time()
 print("time is: ", end - start, " (s)")
