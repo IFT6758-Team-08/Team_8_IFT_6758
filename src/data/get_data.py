@@ -100,7 +100,8 @@ def get_data_playoffs(year, file_path):
         return 
 
 def main():
-    
+    #This firt part (until the loop) can be removed if we don't need command line arguments" 
+    #Have to specify: year, to_year and path to the folder where the files will be downloaded
     parser = argparse.ArgumentParser()
     parser.add_argument('-y', '--year', type=int, required=True)
     parser.add_argument('-p', '--path', type=str, required=True)
