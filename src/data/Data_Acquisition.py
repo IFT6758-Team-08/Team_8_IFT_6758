@@ -1,53 +1,195 @@
+# import requests
+# import os
+# import json
+# import urllib3
+# urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# #Step 1: Create a function that takes a GAME_ID as input and returns the JSON response from the endpoint.
+# def get_game_data(game_id):
+#     url = 'https://statsapi.web.nhl.com/api/v1/game/{}/feed/live/'.format(game_id)
+#     response = requests.get(url,verify=False)
+#     return response.json()
+
+# #Step 2: Create a function that takes a season as input and returns a list of GAME_IDs for all regular season games in that season. You can use the following endpoint to get a list of all games in a season:
+# def get_game_ids(season):
+#     url = 'https://statsapi.web.nhl.com/api/v1/schedule?season={}&expand=schedule.teams,schedule.linescore'.format(season)
+#     response = requests.get(url,verify=False)
+#     game_ids = []
+#     for game in response.json()['dates']:
+#         game_ids.append(game['games'][0]['gamePk'])
+#     return game_ids
+
+# #Step 3: Create a function that takes a season as input and returns a list of GAME_IDs for all playoff games in that season. You can use the following endpoint to get a list of all games in a season:
+# def get_playoff_game_ids(season):
+#     url = 'https://statsapi.web.nhl.com/api/v1/schedule?season={}&expand=schedule.teams,schedule.linescore&leagueId=3'.format(season)
+#     response = requests.get(url,verify=False)
+#     game_ids = []
+#     for game in response.json()['dates']:
+#         game_ids.append(game['games'][0]['gamePk'])
+#     return game_ids
+
+# #Step 4: Create a function that takes a season as input and returns a list of GAME_IDs for all games in that season (regular season and playoffs).
+# def get_all_game_ids(season):
+#     return get_game_ids(season) + get_playoff_game_ids(season)
+
+# #Step 5: Create a function that takes a season as input and returns a list of all play-by-play data for all games in that season. You can use the get_game_data function you created in Step 1.
+# def get_all_game_data(season):
+#     game_ids = get_all_game_ids(season)
+#     game_data = []
+#     for game_id in game_ids:
+#         game_data.append(get_game_data(game_id))
+#     return game_data
+
+# def get_game_datas(year,filepath):
+#     if not os.path.exists(filepath):
+#         os.makedirs(filepath)
+#     game_data = get_all_game_data(year)
+#     with open(filepath + '/{}.json'.format(year), 'w') as f:
+#         json.dump(game_data, f)
+#     return game_data    
+
+# #get all game data from 2016 to 2021
+# for year in range(2016,2022):
+#     get_game_datas(year,'./data/{}_game_data.json'.format(year))
+
+
+import time
 import requests
-import os
 import json
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+import os
 
-#Step 1: Create a function that takes a GAME_ID as input and returns the JSON response from the endpoint.
-def get_game_data(game_id):
-    url = 'https://statsapi.web.nhl.com/api/v1/game/{}/feed/live/'.format(game_id)
-    response = requests.get(url,verify=False)
-    return response.json()
+"""
+references:
+Download_Data: https://www.askpython.com/python/examples/pull-data-from-an-api 
+"""
 
-#Step 2: Create a function that takes a season as input and returns a list of GAME_IDs for all regular season games in that season. You can use the following endpoint to get a list of all games in a season:
-def get_game_ids(season):
-    url = 'https://statsapi.web.nhl.com/api/v1/schedule?season={}&expand=schedule.teams,schedule.linescore'.format(season)
-    response = requests.get(url,verify=False)
-    game_ids = []
-    for game in response.json()['dates']:
-        game_ids.append(game['games'][0]['gamePk'])
-    return game_ids
+## Author: @Rachel
+def download_seasonal_data(season, path, game_type):
+    """download data of a whole season"""
 
-#Step 3: Create a function that takes a season as input and returns a list of GAME_IDs for all playoff games in that season. You can use the following endpoint to get a list of all games in a season:
-def get_playoff_game_ids(season):
-    url = 'https://statsapi.web.nhl.com/api/v1/schedule?season={}&expand=schedule.teams,schedule.linescore&leagueId=3'.format(season)
-    response = requests.get(url,verify=False)
-    game_ids = []
-    for game in response.json()['dates']:
-        game_ids.append(game['games'][0]['gamePk'])
-    return game_ids
+    if game_type == 'regular_season': # initialize
+        prev_game_number = '0000'
+    elif game_type == 'playoff':
+        prev_game_number = '0110'
+    prev_game_available = True
+    game_id = '0000000000'
 
-#Step 4: Create a function that takes a season as input and returns a list of GAME_IDs for all games in that season (regular season and playoffs).
-def get_all_game_ids(season):
-    return get_game_ids(season) + get_playoff_game_ids(season)
+    while (game_id != 'end'):
+        game_id = seasonal_game_id(season, game_type, prev_game_number, prev_game_available)
+        prev_game_available = True
+        # print(game_id)
+        url = 'https://statsapi.web.nhl.com/api/v1/game/{game_id}/feed/live/'.format(game_id=game_id)
+        parse_json = download_data(url)
+        if (len(parse_json.keys()) == 2):  # url with the given game_id not available
+            prev_game_available = False
 
-#Step 5: Create a function that takes a season as input and returns a list of all play-by-play data for all games in that season. You can use the get_game_data function you created in Step 1.
-def get_all_game_data(season):
-    game_ids = get_all_game_ids(season)
-    game_data = []
-    for game_id in game_ids:
-        game_data.append(get_game_data(game_id))
-    return game_data
+        else:
+            filtered_json = parse_json
+            write_to_file(filtered_json, game_id, path)
+        prev_game_number = game_id[6:]
 
-def get_game_datas(year,filepath):
-    if not os.path.exists(filepath):
-        os.makedirs(filepath)
-    game_data = get_all_game_data(year)
-    with open(filepath + '/{}.json'.format(year), 'w') as f:
-        json.dump(game_data, f)
-    return game_data    
 
-#get all game data from 2016 to 2021
-for year in range(2016,2022):
-    get_game_datas(year,'./data/{}_game_data.json'.format(year))
+def download_data(url):
+    """Download the raw data from the link passed as arg"""
+
+    response_api = requests.get(url)
+    data = response_api.text
+    parse_json = json.loads(data)
+    # print(parse_json.keys())
+
+    return parse_json
+
+
+def seasonal_game_id(season, game_type, prev_game_number, prev_game_available):
+    """returns next possible game id of a chosen season"""
+
+    playoff_id = '03'
+    regual_season_id = '02'
+
+    if game_type == 'regular_season':
+        game_type_id = regual_season_id
+        game_number = str(int(prev_game_number) + 1)
+        game_number = "0"*(4-len(game_number)) + game_number
+        if prev_game_available == False:
+            game_id = 'end'
+            return game_id
+
+    elif game_type == 'playoff':
+        game_type_id = playoff_id
+        new_game_number_status, game_number = new_playoff_game_number(prev_game_number, prev_game_available)
+        if new_game_number_status == 'end':
+            return new_game_number_status
+
+    game_id = season + game_type_id + game_number
+    # print(game_id)
+    return game_id
+
+
+def new_playoff_game_number(prev_game_number, prev_game_available):
+    """returns the last 4 digits of a playoff game id, according to the last playoff id used to download"""
+
+    new_game_number = prev_game_number
+    # print(prev_game_available)
+    if prev_game_available:
+        if prev_game_number[3] == '7': # last game. we should go to the next matchup
+            new_game_number = change_string(new_game_number, 2, 4, str(int(new_game_number[2:]) + 4)) # increase the matchup and set the game to 1
+            new_game_number_status, new_game_number = check_new_game_number(new_game_number)
+        else: #not the last game. We should go to the next game
+            new_game_number = change_string(new_game_number, 3, False, str(int(new_game_number[3]) + 1))
+            # print(new_game_number)
+            new_game_number_status = 'continue'
+    else: #if prev number was unavailable
+        new_game_number = change_string(new_game_number, 2, 4, str(int(new_game_number[2:]) + 10)) # So we should go on to the next matchup
+        new_game_number = change_string(new_game_number, 3, False, '1')
+        new_game_number_status, new_game_number = check_new_game_number(new_game_number)
+        print("im here")
+    return new_game_number_status, new_game_number
+
+
+def check_new_game_number(new_game_number):
+    # print(new_game_number[1:3])
+    if new_game_number[1:3] == '42':  # check the 2nd and 3rd digits of the last 4 digits
+        new_game_number_status = 'end'  # end of last(4th) round
+    elif new_game_number[1:3] == '33':  # end of 3rd round
+        new_game_number_status = 'continue'
+        new_game_number = change_string(new_game_number, 1, 4, '411')
+    elif new_game_number[1:3] == '25':  # end of 2nd round
+        # print("yea")
+        new_game_number_status = 'continue'
+        new_game_number = change_string(new_game_number, 1, 4, '311')
+    elif new_game_number[1:3] == '19':  # end of 1st round
+        new_game_number_status = 'continue'
+        new_game_number = change_string(new_game_number, 1, 4, '211')
+    else:
+        new_game_number_status = 'continue'
+    return new_game_number_status, new_game_number
+
+
+def change_string(string, index_start, index_end, new_char):
+    string_list = list(string)
+    # new_char_list = list(new_char)
+    if index_end == False:
+        string_list[index_start] = new_char
+    else:
+        string_list[index_start:index_end] = new_char
+    new_string = "".join(string_list)
+    # print(new_string)
+    return new_string
+
+
+def write_to_file(parse_json, game_id, path):
+    """writes a dictionary(json data) to a json file"""
+
+    if not os.path.exists(path): #create path
+        os.makedirs(path)
+    path = path + game_id + ".json"
+    if not os.path.exists(path):
+        with open(path, "w") as outfile:
+            json.dump(parse_json, outfile)
+    print(game_id)
+
+
+start = time.time()
+download_seasonal_data('2020', 'raw_data/2020/', 'playoff')
+end = time.time()
+print("time is: ", end - start, " (s)")
