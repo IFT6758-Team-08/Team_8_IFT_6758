@@ -30,7 +30,7 @@ def download_seasonal_data(season, path, game_type):
 
         else:
             filtered_json = parse_json['liveData']['plays']['allPlays']
-            write_to_file(parse_json, game_id, path)
+            write_to_file(filtered_json, game_id, path)
         prev_game_number = game_id[6:]
 
 
