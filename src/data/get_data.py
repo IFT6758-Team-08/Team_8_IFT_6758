@@ -34,25 +34,28 @@ def get_data_regular(year, file_path):
 
 
         #iterating through all the games until we reach a game with no data (game with no 'liveData')
-        full_regular_data = [] #stores data of each game
-        game_exists = True
-        i = 1
+        
+        all_regular_games = {} #dictionary (key, value) = (ID, game_data)
+        
+        game_exists = True #while the url contains information about the game
+        i = 1 
 
         #This loop will go through all ids from 1 to the number of games  
         while game_exists == True:
             GAME_ID = "{}02{:04d}".format(year, i)
             url = 'https://statsapi.web.nhl.com/api/v1/game/{}/feed/live/'.format(GAME_ID)
             r = requests.get(url).json() #request all data about the game
-            if r.get('liveData') is not None: #if 'liveData' == None, then no data for that game. 
-                regular_season = r['liveData']['plays']['allPlays'] #but only save the play_by_play part we need
-                full_regular_data.append(regular_season)
+            regular_game = {} 
+            if r.get('liveData') is not None: #if 'liveData' == None, then no data for that game.
+                regular_game['gameData'], regular_game['liveData'] = r['gameData'],r['liveData']
+                all_regular_games[GAME_ID] = regular_game
                 i +=1
             else:
                 game_exists = False
 
         #write the json file: 
         with  open(file_path, 'w') as f_regular:
-            json.dump(full_regular_data, f_regular)
+            json.dump(all_regular_games, f_regular)
         end = time.time()
         print("time for regular season", end - start)
         return 
@@ -74,7 +77,7 @@ def get_data_playoffs(year, file_path):
 
     
     else: 
-        full_playoff_data = [] #stores the data for all games
+        all_playoff_games = {} #stores the data for all games
 
         #This loop iterates through all the possible IDs of a playoff
         for p_round in range(1, 5): #4rounds
@@ -83,13 +86,14 @@ def get_data_playoffs(year, file_path):
                     GAME_ID = '{}030{}{}{}'.format(year, p_round, match_up, game)
                     url = 'https://statsapi.web.nhl.com/api/v1/game/{}/feed/live/'.format(GAME_ID)
                     r = requests.get(url).json()
+                    playoff_game = {} 
                     if r.get('liveData') is not None: #if the game has no data / no play_to_play data
-                        playoffs = r['liveData']['plays']['allPlays']
-                        full_playoff_data.append(playoffs)
+                        playoff_game['gameData'], playoff_game['liveData'] = r['gameData'],r['liveData']
+                        all_playoff_games[GAME_ID] = playoff_game
 
         
         with open(file_path, 'w') as f_playoff:
-            json.dump(full_playoff_data, f_playoff)
+            json.dump(all_playoff_games, f_playoff)
             
         end = time.time()
         print("time for playoff season", end - start)
@@ -104,10 +108,10 @@ def main():
     args = parser.parse_args()
 
     year, path = args.year, args.path
-    print(len(sys.argv))
+    to_year = year 
     if len(sys.argv) == 7:
         to_year = args.to_year
-    else: to_year= year  
+     
 
     for y in range(year, to_year+1): 
         #file_path_regular, file_path_playoff = os.path.join(path, str(year) + "_regular_season.json"), os.path.join(path, str(year) + "_playoffs.json"),
