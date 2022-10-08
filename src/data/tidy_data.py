@@ -38,8 +38,7 @@ def get_game_events(data: dict):
     for (key, info) in data.items():
         game_events_list = info['liveData']['plays']['allPlays']
         if len(game_events_list) != 0: #filters out the games where all keys are empty 
-            events_dict["game_id"] = key
-            events_dict["play_by_play"] = game_events_list
+            events_dict["game_id"], events_dict["play_by_play"] = key , game_events_list
     return events_dict
         
 
