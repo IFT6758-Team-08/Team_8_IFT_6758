@@ -1,4 +1,4 @@
- 
+  
 import os, sys
 import pandas as pd
 import json
@@ -7,42 +7,32 @@ import json
 
 def get_game_events(data: dict):
     """
-        This function takes the dictionary in the json files
-        and returns one dictionary with two keys: game_id and play_by_play data.
+        This function takes a dictionary with a game's information (gameData and liveData)
+        and returns two dictionaries: 
+            games_metadata: key=game_ID, values = dictionary with the rinkSide of each team for every period
+            events_dict: key=game_ID, value =  all play by play events
     """
     events_dict, games_metadata = {}, {}
     for (key, info) in data.items():
         game_meta, events_list = {}, []
-        period_info_list = info['liveData']['linescore']['periods']
-        if len(period_info_list) >0 :
-            game_period_home, game_period_away = {} , {}
-            for i, period in enumerate(period_info_list):  #ex. 2017020045 no rinkside
-                if 'rinkSide' in period['home']: 
-                    game_period_home[str(i+1)] = period['home']['rinkSide']
-                    game_period_away[str(i+1)] = period['away']['rinkSide']
+        period_info_list = info['liveData']['linescore']['periods'] #list containing the team's side in each period
+        if len(period_info_list) >0:
+            game_meta[info['gameData']['teams']['home']['name']], game_meta[info['gameData']['teams']['away']['name']] = get_metadata_rinkSide(period_info_list)
 
-            game_meta[info['gameData']['teams']['home']['name']] = game_period_home
-            game_meta[info['gameData']['teams']['away']['name']] = game_period_away
-  
-        
-   
-
-            for event in info['liveData']['plays']['allPlays']: 
-                if event['result']['event'] == "Shot" or event['result']['event'] == "Goal": #filters all other events and games with no data
-                    events_list.append(event)
-            games_metadata[key] = game_meta
-            events_dict[key] = events_list
+        for event in info['liveData']['plays']['allPlays']: 
+            if event['result']['event'] == "Shot" or event['result']['event'] == "Goal": #filters all other events and games with no data
+                events_list.append(event)
+        games_metadata[key] = game_meta
+        events_dict[key] = events_list
     return events_dict, games_metadata
 
-""""
-def get_shots_goals_events(df):
-    
-        This function takes a dataFrame of all events
-        and keeps only Shots and Goals events
-    
-    shots_goals_df = df.loc[(df['result.event'] == "Shot") | (df['result.event'] == "Goal")]
-    return shots_goals_df
-"""
+def get_metadata_rinkSide(period_info_list): 
+    game_period_home, game_period_away = {} , {}
+    for i, period in enumerate(period_info_list):  #ex. 2017020045 no rinkside
+        if 'rinkSide' in period['home']: 
+            game_period_home[str(i+1)] = period['home']['rinkSide']
+            game_period_away[str(i+1)] = period['away']['rinkSide']
+    return game_period_home, game_period_away
 
 def filter_df(df, games_metadata):
     """
