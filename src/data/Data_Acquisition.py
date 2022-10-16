@@ -169,7 +169,7 @@ def main():
     #     to_year = args.to_year
     year = 2016
     to_year = 2020
-    path = "/home/yashaswi/Documents/IFT 6758/Project NHL"
+    path = "D:/NHLPro/data"
      
     for y in range(year, to_year+1): 
         #file_path_regular, file_path_playoff = os.path.join(path, str(year) + "_regular_season.json"), os.path.join(path, str(year) + "_playoffs.json"),
