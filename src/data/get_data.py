@@ -16,7 +16,7 @@ The user passes as command line argument:
 def get_data_regular(year, file_path):
     """
     The function takes as input year representing a season and a file path
-    and downloads all the play_by_play events of the regular season
+    and downloads all the gameData and liveData events of the regular season
     in file_path. 
 
 
@@ -63,7 +63,7 @@ def get_data_regular(year, file_path):
 #Playoffs
 def get_data_playoffs(year, file_path):
     """ The function takes a year representing a season and a file path
-    and downloads all the play_by_play events of the regular season
+    and downloads all the gameData and liveData events of the regular season
     in file_path.
     """
     
