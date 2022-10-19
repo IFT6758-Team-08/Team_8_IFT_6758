@@ -1,9 +1,9 @@
-  
+ 
 import os, sys
 import pandas as pd
 import json
 
-#2016020007: 5 periods but only 4 in linescore
+
 
 def get_game_events(data: dict):
     """
@@ -18,6 +18,7 @@ def get_game_events(data: dict):
         period_info_list = info['liveData']['linescore']['periods'] #list containing the team's side in each period
         if len(period_info_list) >0:
             game_meta[info['gameData']['teams']['home']['name']], game_meta[info['gameData']['teams']['away']['name']] = get_metadata_rinkSide(period_info_list)
+
         for event in info['liveData']['plays']['allPlays']: 
             if event['result']['event'] == "Shot" or event['result']['event'] == "Goal": #filters all other events and games with no data
                 events_list.append(event)
@@ -25,7 +26,6 @@ def get_game_events(data: dict):
         events_dict[key] = events_list
     return events_dict, games_metadata
 
-  
 def get_metadata_rinkSide(period_info_list): 
     game_period_home, game_period_away = {} , {}
     for i, period in enumerate(period_info_list):  #ex. 2017020045 no rinkside
@@ -34,8 +34,8 @@ def get_metadata_rinkSide(period_info_list):
             game_period_away[str(i+1)] = period['away']['rinkSide']
     return game_period_home, game_period_away
 
-  
 def filter_df(df, games_metadata):
+
     """
         This function filters a dataframe and only keeps a subset of columns
     """
@@ -47,23 +47,24 @@ def filter_df(df, games_metadata):
                  'team.name', 'result.event', 'coordinates.x',
                  'coordinates.y', 'result.secondaryType',
                  'result.emptyNet', 'result.strength.name']]
+
+
     new_df_copy = new_df.copy()
     new_df_copy['rinkSide'] = new_df.apply(lambda x:get_rinkside(x['game_id'], x['team'], x['period'], games_metadata), axis=1)
-    new_df_copy['shooter'], new_df_copy['goalie'] = df['players'].apply(get_shooter), df['players'].apply(get_goalie)
+    new_df_copy['shooter'] = df['players'].apply(get_shooter)
+    new_df_copy['goalie'] = df['players'].apply(get_goalie)
     return new_df_copy
 
-  
 def get_rinkside(game_id, team, period, games_metadata): 
-  """
-    This function returns the rinkSide of a team depending of the period 
-  """
-    if str(period) in games_metadata[game_id][team]: 
-        rinkside = games_metadata[game_id][team][str(period)]
-    else: 
-        rinkside = None
-    return rinkside
+    try : 
+        if period % 2 == 1: 
+            return games_metadata[game_id][team]["1"]
+        elif period %2 == 0: 
+            return games_metadata[game_id][team]["2"]
+    except: 
+            return None
 
-  
+
 def get_goalie(list_players):
     """
         This function takes a list of dictionaries,
@@ -87,7 +88,7 @@ def get_shooter(list_players):
         if player['playerType'] == 'Shooter' or player['playerType'] == 'Scorer': 
             return player['player']['fullName']
     return None
- 
+    
 def tidy_one_season(path):
     """
     returns the desired dataframe for the given year(season)
@@ -108,13 +109,12 @@ def tidy_one_season(path):
     filtered_df = filter_df(all_df,games_metadata)  # keeps only the columns we need
     return filtered_df
 
-  
 def tidy_all_seasons(path, year, to_year):
     """
     returns the dataframe for all the seasons(from year to to_year)
     """
+ 
     for y in range(year, to_year + 1):
-       # all_df = pd.DataFrame()
         file_path_regular, file_path_playoff = path + "/" + str(y) + "_regular_season.json", path + "/" + str(y) + "_playoffs.json"
         output_file = path + "/" + str(y) +"_clean.csv"
         df_regular = tidy_one_season(file_path_regular)
