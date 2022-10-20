@@ -48,7 +48,6 @@ for team in df['team'].unique():
     x, y, diff= get_diff(team, df)
     fig.add_trace(
         go.Contour(
-        #Add default values for the dropdown menu
         visible=False,
         z=diff,
         x=x, 
@@ -58,23 +57,21 @@ for team in df['team'].unique():
         name=team, 
     ))
 
-
-    
-
 #Resizing the graph: 
 fig.update_layout(
     autosize=False,
     width=800,
     height=800)
-fig.update_yaxes(autorange="reversed")
+# fig.update_yaxes(autorange="reversed")
 fig.update_xaxes(range=[0, 85])
 fig.update_yaxes(range=[-10, 90])
     
-fig.update_layout(template="rink_template")
-
 #Creating a dropdown menu iterating through all the teams: 
 fig.update_layout(updatemenus=[dict(active=0, 
                   buttons=[dict(args=[{"visible": [i == j for j in range(len(list(df["team"].unique())))]}], label=team, 
                             method="update") for (i,team) in enumerate(list(df["team"].unique()))])])
 
 fig.show()
+
+# Save the figure to html file
+fig.write_html("dropdown.html")
