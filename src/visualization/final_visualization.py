@@ -4,10 +4,6 @@ import numpy as np
 from scipy.ndimage import gaussian_filter
 
 
-
-
-
-
 def transform_coordinates(season_df: pd.DataFrame) -> pd.DataFrame:
     """
     This function adds columns to the dataframe: 
@@ -18,8 +14,8 @@ def transform_coordinates(season_df: pd.DataFrame) -> pd.DataFrame:
     season_df['x_transformed'] = season_df.apply(lambda x:transform_one_coordinate(x['rinkSide'], x['coordinates_x']), axis=1)
     season_df['y_transformed'] = season_df.apply(lambda x:transform_one_coordinate(x['rinkSide'], x['coordinates_y']), axis=1)
    
-    #Remove the shots that were not in the offisive zone (x<25) 
-    season_df = season_df.drop(season_df[season_df.x_transformed < 25].index)  
+    #Remove the shots that were not in the offisive zone (x<25) and the ones made after the goal line
+    season_df = season_df.drop(season_df[(season_df.x_transformed < 25) & (season_df.x_transformed > 89)].index)  
 
     #computes the distace from the goal (dist = 89 - x)
     season_df['goal_dist'] = season_df.apply(lambda x: (89 - x['x_transformed']), axis = 1)
@@ -47,7 +43,7 @@ def compute_league_rate(season_df) :
 
     #binning the coordinates and grouping by bined location: 
     season_df['y'] = season_df['y_transformed']*(-1) #to fit the rink representation in the plot. 
-    y_bins, goal_dist_bins = list(range(-43,43,2)), list(range(-10,90,2))
+    y_bins, goal_dist_bins = list(range(-43,44,4)), list(range(0,75,4))
     season_df['y_bins'], season_df['goal_dist_bins'] = pd.cut(season_df['y'], y_bins), pd.cut(season_df['goal_dist'], goal_dist_bins)
     new_df = season_df.groupby(['y_bins','goal_dist_bins'])['event'].size().to_frame('total').reset_index()
 
@@ -72,10 +68,12 @@ def compute_team_rate(season_df):
     
     #binning the coordinates and grouping by bined team and location: 
     season_df['y'] = season_df['y_transformed']*(-1) #to fit the rink representation in the plot. 
-    y_bins, goal_dist_bins = list(range(-43,43,2)), list(range(-10,90,2))
+    y_bins, goal_dist_bins = list(range(-43,44,4)), list(range(0,75,4))
     season_df['y_bins'], season_df['goal_dist_bins'] = pd.cut(season_df['y'], y_bins), pd.cut(season_df['goal_dist'], goal_dist_bins)
     new_df = season_df.groupby(['team', 'y_bins','goal_dist_bins'])['event'].size().to_frame('total').reset_index()
-    
+
+
+
     #Midpoints of the bins: 
     new_df['y_mid'] = new_df['y_bins'].apply(lambda x: (x.left + x.right)/2)
     new_df['goal_mid'] = new_df['goal_dist_bins'].apply(lambda x: (x.left + x.right)/2)
@@ -103,6 +101,7 @@ def get_one_loc_league(y_mid, goal_mid, league_df):
     """"
     This function returns the shot rate per hour of the whole league for a specific location. 
     """
+
     league = league_df.loc[(league_df["y_mid"]==y_mid) & (league_df["goal_mid"]== goal_mid), 'league_rate']
     return league.iloc[0]
 
@@ -118,7 +117,7 @@ def compute_diff(df_league, df_team):
     return df_team
 
 def main(): 
-    season_df = pd.read_csv("./2016_clean.csv").dropna(subset=['rinkSide']) 
+    season_df = pd.read_csv("data/2016_clean.csv").dropna(subset=['rinkSide']) 
     season_df = transform_coordinates(season_df) # transforms the coordinates to the right side of the rink
 
     df_league = compute_league_rate(season_df) #df with shot rate/h grouped by location (across all teams)
@@ -127,7 +126,7 @@ def main():
     #Compute the excess shot rate at each location
     rate_df = compute_diff(df_league, df_team)
 
-    rate_df.to_csv("./2016_difference.csv", index = False, encoding='utf-8-sig')      
+    rate_df.to_csv("data/2016_difference.csv", index = False, encoding='utf-8-sig')      
 
 
 if __name__ == "__main__": 

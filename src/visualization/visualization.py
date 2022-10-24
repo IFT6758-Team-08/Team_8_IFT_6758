@@ -4,10 +4,6 @@ import numpy as np
 from scipy.ndimage import gaussian_filter
 
 
-
-
-
-
 def transform_coordinates(season_df: pd.DataFrame) -> pd.DataFrame:
     """
     This function adds columns to the dataframe: 
@@ -47,7 +43,7 @@ def compute_league_rate(season_df) :
 
     #binning the coordinates and grouping by bined location: 
     season_df['y'] = season_df['y_transformed']*(-1) #to fit the rink representation in the plot. 
-    y_bins, goal_dist_bins = list(range(-43,44,2)), list(range(0,75,2))
+    y_bins, goal_dist_bins = list(range(-43,44,4)), list(range(0,75,4))
     season_df['y_bins'], season_df['goal_dist_bins'] = pd.cut(season_df['y'], y_bins), pd.cut(season_df['goal_dist'], goal_dist_bins)
     new_df = season_df.groupby(['y_bins','goal_dist_bins'])['event'].size().to_frame('total').reset_index()
 
@@ -72,7 +68,7 @@ def compute_team_rate(season_df):
     
     #binning the coordinates and grouping by bined team and location: 
     season_df['y'] = season_df['y_transformed']*(-1) #to fit the rink representation in the plot. 
-    y_bins, goal_dist_bins = list(range(-43,44,2)), list(range(0,75,2))
+    y_bins, goal_dist_bins = list(range(-43,44,4)), list(range(0,75,4))
     season_df['y_bins'], season_df['goal_dist_bins'] = pd.cut(season_df['y'], y_bins), pd.cut(season_df['goal_dist'], goal_dist_bins)
     new_df = season_df.groupby(['team', 'y_bins','goal_dist_bins'])['event'].size().to_frame('total').reset_index()
 
@@ -121,7 +117,7 @@ def compute_diff(df_league, df_team):
     return df_team
 
 def main(): 
-    season_df = pd.read_csv("./2019_clean.csv").dropna(subset=['rinkSide']) 
+    season_df = pd.read_csv("./2016_clean.csv").dropna(subset=['rinkSide']) 
     season_df = transform_coordinates(season_df) # transforms the coordinates to the right side of the rink
 
     df_league = compute_league_rate(season_df) #df with shot rate/h grouped by location (across all teams)
@@ -130,7 +126,7 @@ def main():
     #Compute the excess shot rate at each location
     rate_df = compute_diff(df_league, df_team)
 
-    rate_df.to_csv("./2019_difference.csv", index = False, encoding='utf-8-sig')      
+    rate_df.to_csv("./2016_difference.csv", index = False, encoding='utf-8-sig')      
 
 
 if __name__ == "__main__": 

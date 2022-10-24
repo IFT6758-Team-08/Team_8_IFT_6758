@@ -9,8 +9,8 @@ from scipy.ndimage import gaussian_filter
 
 """"Kept the file name dynamic so that it can be used for any season"""
 file_name = "2016_difference.csv"
-#df = pd.read_csv('data/'+file_name)
-df = pd.read_csv('2019_difference.csv')
+df = pd.read_csv('data/'+file_name)
+#df = pd.read_csv('2019_difference.csv')
 """"Get the year from the file name"""
 year = file_name.split("_")[0]
 
@@ -121,4 +121,4 @@ fig.data[0].visible = True
 fig.show()
 
 """Save the figure to html file"""
-#fig.write_html(year+"_dropdown.html")
+fig.write_html(year+"_dropdown.html")
