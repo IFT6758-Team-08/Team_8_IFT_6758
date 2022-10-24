@@ -7,6 +7,11 @@ from scipy.interpolate import griddata
 #import plotly.io as pio
 from scipy.ndimage import gaussian_filter
 
+"""
+Some parts of the code (the use of meshgrid, griddata, gaussian filters and finding the min and max values of the colourbar) 
+have been adapted from the following "The Commute Sport" article:  https://thecommutesports.com/2022/08/06/creating-nhl-shot-maps-with-python/
+""" 
+
 """"Kept the file name dynamic so that it can be used for any season"""
 file_name = "2016_difference.csv"
 df = pd.read_csv(file_name)
@@ -26,7 +31,8 @@ def get_diff(team, team_df):
     x_rink = np.sort(df['y_mid'].unique())
     y_rink = np.sort(df['goal_mid'].unique())
 
-    # [x,y] = np.round(np.meshgrid(x_rink,y_rink))
+    
+    #The following two lines were adapter from "The Commute Sport" article cited above 
     [x,y] = np.meshgrid(x_rink,y_rink)
     diff = griddata((team_df['y_mid'], team_df['goal_mid']),team_df['raw_diff'],(x,y),method='cubic',fill_value=0)
  
@@ -60,7 +66,9 @@ imae=fig.add_layout_image(
 for team in df['team'].unique(): 
 
     x, y, diff= get_diff(team, df)
-    diff = gaussian_filter(diff, sigma=1.5)
+    
+    #The following lines for gaussian filter and min/max values were adapted from "The Commute Sport" article cited above
+    diff = gaussian_filter(diff, sigma=1.5) 
     """For color coding"""
     min_diff,max_diff = np.min(diff), np.max(diff)
     if np.abs(min_diff) > np.abs(max_diff):
