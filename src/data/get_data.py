@@ -115,7 +115,6 @@ def main():
      
 
     for y in range(year, to_year+1): 
-        #file_path_regular, file_path_playoff = os.path.join(path, str(year) + "_regular_season.json"), os.path.join(path, str(year) + "_playoffs.json"),
         file_path_regular, file_path_playoff = path + "/" + str(y) + "_regular_season.json", path + "/" + str(y) + "_playoffs.json"
         get_data_playoffs(y, file_path_playoff) 
         get_data_regular(y, file_path_regular)
