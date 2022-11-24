@@ -1,12 +1,14 @@
 import numpy as np
 import pandas as pd
 import json
+from comet_ml import Experiment
+import os
 
 
 def get_penalty_plays(path):
     """returns a dictionary with list of penalty plays as values and game_id as keys."""
     data = pd.read_csv(path)
-    data = data[np.floor(data['game_id']/1000000) == 2016]
+    # data = data[np.floor(data['game_id']/1000000) == 2016]
     game_ids = data['game_id']
     game_ids = np.unique(game_ids)
 
@@ -72,21 +74,23 @@ def check_reset_penalty_time(home_penalties, away_penalties, row, powerplay_star
         #(minutes, current_penalty_time, player_numbers)
         if penalty[1] + penalty[0] * 60 <= current_time:
             #we should reset this penalty
-            print("reset this penalty1")
-            print(row)
+            # print("reset this penalty1")
+            # print(row)
             reset1 = True
             del new_home_penalties[i]
+            i-=1
             new_row['home_number_of_players'] += 1
         i += 1
     i = 0
     for penalty in away_penalties:
         #(minutes, current_penalty_time, player_numbers)
         if penalty[1] + penalty[0] * 60 <= current_time:
-            print("reset this penalty2")
-            print(row)
+            # print("reset this penalty2")
+            # print(row)
             #we should reset this penalty
             reset2 = True
             del new_away_penalties[i]
+            i-=1
             new_row['away_number_of_players'] += 1
         i+=1
 
@@ -123,9 +127,9 @@ def unstack_delayed_penalty(stack, delayed, row, t):
 
 
 def check_reset_penalty_goal(stack, row, powerplay_start_time, t):
-    # stack = [(minutes, current_time, player_numbers), ...]
-    print("its a goal")
-    print(stack)
+    # stack = [(minutes, penalty_current_time, player_numbers), ...]
+    # print("its a goal for ", t)
+    # print(stack)
     current_time = calc_time(row['period'], row['period_time'])
     new_row = row.copy()
     i = 0
@@ -146,7 +150,7 @@ def check_reset_penalty_goal(stack, row, powerplay_start_time, t):
                 new_row[t + '_number_of_players'] = row[t + '_number_of_players'] + 1
                 reset = True
             else: #more than 2 mins left
-                stack[i] = (2, stack[i][1], stack[i][2])
+                stack[i] = (2, current_time, stack[i][2])
             break
         i += 1
 
@@ -175,28 +179,48 @@ def add_columns(df):
 
 def get_teams(game_id):
     #specify home and away teams
-    with open('get data/2016_regular_season.json') as file:
+    with open('get data/2017_regular_season.json') as file:
         data = json.load(file)
     teams = data[game_id]['gameData']['teams']
     away = teams['away']['name']
     home = teams['home']['name']
     return home, away
 
+def get_subset_df(path):  #path to the final feature eng 2 datafram csv file
+    df = pd.read_csv(path)
+    #get data for gameid = 2017021065
+    subset_df = df[df["game_id"] == 2017021065]
+    return subset_df.reset_index(drop=True)
+
+
+def comet(path):
+    subset_df = get_subset_df(path)
+    experiment = Experiment(
+        api_key=os.environ.get('COMET_API_KEY'),
+        project_name='ift-6758-team-8',
+        workspace="Rachel98",
+    )
+    experiment.log_dataframe_profile(
+        subset_df,
+        name='BONUS_wpg_v_wsh_2017021065',  # keep this name
+        dataframe_format='csv'  # ensure you set this flag!
+    )
+
 if __name__ == '__main__':
-    all_penalty_plays = get_penalty_plays('M2_regular_bonus_2016_cleaned.csv')
-    df = pd.read_csv('M2_regular_bonus_2016_cleaned.csv')
-    df = pd.read_csv('bonus_test.csv')
+    all_penalty_plays = get_penalty_plays('M2_regular_bonus_2017_cleaned.csv')
+    df = pd.read_csv('M2_regular_bonus_2017_cleaned.csv')
+    # df = pd.read_csv('bonus_test.csv')
     # df = df.iloc[375:405]
     df = add_columns(df)
     # print(df['event'])
-    print(df.iloc[:, 8:])
+    # print(df.iloc[:, 8:])
     game_ids = all_penalty_plays.keys()
 
-    game_ids = list(game_ids)[0:1]
+    # game_ids = list(game_ids)[0:1]
 
     for game_id in game_ids:
         game_penalty_plays = all_penalty_plays[game_id]
-        game_penalty_plays = [11, 13, 16, 18]
+        # game_penalty_plays = [11, 13, 16, 18]
         home, away = get_teams(str(game_id))
         home_penalties = []
         away_penalties = []
@@ -254,7 +278,7 @@ if __name__ == '__main__':
 
                 #play + 375
                 if play in game_penalty_plays: #penalty occured
-                    print(play)
+                    # print(play)
                     minutes = df.iloc[play]['penalty_minutes']
                     if int(minutes) > 0:
                         if pteam == home:
@@ -265,9 +289,7 @@ if __name__ == '__main__':
                         df.iloc[play] = list(new_row)
 
                 reset1, reset2, reset3, reset4 = False, False, False, False
-    print(df.iloc[:, 9:])
+    # print(df.iloc[:, 9:])
+    df.to_csv('2017_bonus_output', index=False, encoding='utf-8-sig')
 
-# a = get_penalty_plays('M2_regular_bonus_2016_cleaned.csv')
-# add_columns()
-# df = pd.read_csv('M2_regular_bonus_2016_cleaned.csv')
-# print(df.iloc[70:80])
+    comet("bonus output/2017_bonus_output.csv")
