@@ -156,7 +156,7 @@ def tidy_all_seasons(path, year, to_year):
 
 
 def main():
-    tidy_all_seasons("get data", 2016, 2019)
+    tidy_all_seasons("get data", 2015, 2018)
 
 
 if __name__ == "__main__":
