@@ -46,8 +46,8 @@ def preprocess_data(data):
 # Splitting the dataset into the Training set and Test set for grid search CV 5
 #preprocess
 def split_data(data):
-    X = data.iloc[:,:-1]
-    y = data.iloc[:,-1]
+    X = data.drop(['goal'], axis=1)
+    y = data['goal']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 42)
     return X_train, X_test, y_train, y_test
 
