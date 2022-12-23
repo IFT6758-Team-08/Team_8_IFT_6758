@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 class ServingClient:
-    def __init__(self, ip: str = "0.0.0.0", port: int = 5000, features=None):
+    def __init__(self, ip: str = "localhost", port: int = 5010, features=None):
         self.base_url = f"http://{ip}:{port}"
         logger.info(f"Initializing client; base URL: {self.base_url}")
 
@@ -27,13 +27,29 @@ class ServingClient:
         Args:
             X (Dataframe): Input dataframe to submit to the prediction service.
         """
-
-        raise NotImplementedError("TODO: implement this function")
+        logger.info("Initializing request to generate predictions")
+        try:
+            r = requests.post(
+                f"{self.base_url}/predict", 
+                json=X.to_json(orient = 'table')
+            )
+            logger.info("Successfully generated predictions")
+            return r.json()
+        except Exception as e:
+            print(e)
+            return None
+        # raise NotImplementedError("TODO: implement this function")
+        # logegr.info()
 
     def logs(self) -> dict:
         """Get server logs"""
-
-        raise NotImplementedError("TODO: implement this function")
+        logger.info("Initializing request to server get logs")
+        r = requests.get(
+            f"{self.base_url}/logs"
+        )
+        # print(r.json())
+        logger.info("Server Logs fetched")
+        return r.json()
 
     def download_registry_model(self, workspace: str, model: str, version: str) -> dict:
         """
@@ -50,5 +66,19 @@ class ServingClient:
             model (str): The model in the Comet ML registry to download
             version (str): The model version to download
         """
-
-        raise NotImplementedError("TODO: implement this function")
+        logger.info(f"Initializing request to download the model{model}-{version}")
+        self.workspace = workspace
+        self.model = model
+        self.version = version
+        self.model_filename = f"{workspace}_{model}_{version}"
+        r = requests.post(
+            f"{self.base_url}/download_registry_model", 
+            json= {'workspace': workspace, 'model': model, 'version': version}
+        )
+        logger.info("Successfully Downloaded Model")
+        # return r.json()
+        
+        
+# if __name__=='__main__':
+#     sc = ServingClient()
+#     sc.logs()
