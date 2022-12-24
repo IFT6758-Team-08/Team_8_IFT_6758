@@ -183,7 +183,28 @@ def preprocess_data2(df):
     # df['last_event_type'] = df['last_event_type'].astype('category').cat.codes
     # Convert secondary_type and last_event_type to dummy variables
     df = pd.get_dummies(df, columns=['secondary_type', 'last_event_type'], drop_first=True)
+    all_dummies = ['secondary_type_Deflected', 'secondary_type_Slap Shot',
+    'secondary_type_Snap Shot', 'secondary_type_Tip-In',
+    'secondary_type_Wrap-around', 'secondary_type_Wrist Shot',
+    'last_event_type_Faceoff', 'last_event_type_Giveaway',
+    'last_event_type_Goal', 'last_event_type_Hit',
+    'last_event_type_Missed Shot', 'last_event_type_Penalty',
+    'last_event_type_Shot', 'last_event_type_Takeaway']
+    for f in all_dummies:
+        if f not in df.keys():
+            df[f] = 0
 
+    # df = df[['team', 'period', 'period_time', 'coordinates_x', 'coordinates_y',
+    #    'shot_distance', 'shot_angle', 'time_from_last_event(s)',
+    #    'distance_from_last_event', 'rebound', 'angle_change', 'speed',
+    #    'last_event_coordinates_x', 'last_event_coordinates_y', 'goal',
+    #    'secondary_type_Deflected', 'secondary_type_Slap Shot',
+    #    'secondary_type_Snap Shot', 'secondary_type_Tip-In',
+    #    'secondary_type_Wrap-around', 'secondary_type_Wrist Shot',
+    #    'last_event_type_Faceoff', 'last_event_type_Giveaway',
+    #    'last_event_type_Goal', 'last_event_type_Hit',
+    #    'last_event_type_Missed Shot', 'last_event_type_Penalty',
+    #    'last_event_type_Shot', 'last_event_type_Takeaway']]
     return df
 ################feature eng 2###########################
 def filter_features(prev_events_df, goal_shot_df):
@@ -304,6 +325,7 @@ def get_new_events_only(all_data, tracker_game):
 
 
 def ping_game_client(GAME_ID):
+
     data = get_data(GAME_ID)
     if data == "Game Id data not available!":
         return "Game Id data not available!", "N/A", "N/A", "N/A", "N/A", "N/A"
@@ -313,6 +335,7 @@ def ping_game_client(GAME_ID):
         cur_period = data['liveData']['plays']['allPlays'][-1]['about']['period']
         remaining_time = data['liveData']['plays']['allPlays'][-1]['about']['periodTimeRemaining']
         score = data['liveData']['plays']['allPlays'][-1]['about']['goals']
+
         if os.path.exists("tracker.json"):
             with open("tracker.json", "r") as file:
                 old_tracker = json.load(file)
@@ -323,6 +346,8 @@ def ping_game_client(GAME_ID):
             old_tracker_game = old_tracker[GAME_ID]
             prev_last_valid_event_idx = old_tracker_game["last_val_idx"]
             prev_last_event_idx = old_tracker_game["last_idx"]
+            prev_away_prob = old_tracker_game['away_prob']
+            prev_home_prob = old_tracker_game['home_prob']
 
             number_of_all_events = len(data['liveData']['plays']['allPlays'])
             if prev_last_event_idx + 1 == number_of_all_events:
@@ -337,6 +362,8 @@ def ping_game_client(GAME_ID):
         else:
             prev_last_valid_event_idx = 0
             prev_last_event_idx = 0
+            prev_away_prob = 0
+            prev_home_prob = 0
 
         # print(data['liveData']['plays']['allPlays'][0])
         df, last_event_idx, last_valid_event_idx, flag = tidy_data(data)
@@ -356,7 +383,7 @@ def ping_game_client(GAME_ID):
             # print("No new shot was found!")
             return "No new shot was found!", away_team, home_team, cur_period, remaining_time, score
         # print(last_valid_event_idx, prev_last_valid_event_idx)
-        tracker = {"last_val_idx": int(last_valid_event_idx + prev_last_valid_event_idx), "last_idx": int(last_event_idx + prev_last_valid_event_idx)}
+        tracker = {"last_val_idx": int(last_valid_event_idx + prev_last_valid_event_idx), "last_idx": int(last_event_idx + prev_last_valid_event_idx), 'away_prob': prev_away_prob, 'home_prob': prev_home_prob}
 
 
         old_tracker[GAME_ID] = tracker
