@@ -15,7 +15,7 @@ from flask import Flask, jsonify, request, abort
 import sklearn
 import pandas as pd
 import joblib
-from utils_ import download_model
+from utils import download_model
 
 # import ift6758
 
