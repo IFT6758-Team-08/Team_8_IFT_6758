@@ -12,7 +12,7 @@ FROM python:3.7
 
 # https://docs.docker.com/engine/reference/builder/#workdir
 # Create and cd into /code as your working directory
-WORKDIR /code
+WORKDIR /app
 
 
 # The main docker commands you will find useful:
@@ -45,13 +45,23 @@ WORKDIR /code
 
 
 # TODO: add code, optionally a default model if you want 
-
+# Add xgb2 model to the container (this is the model you will use for the streamlit app)
+COPY . /app/
+# COPY requirements.txt ./requirements.txt
 
 # TODO: install libs
+RUN pip install -r requirements.txt
+# RUN pip install -e serving/
 
 
 # TODO: expose ports (or do this in docker-compose)
-
+EXPOSE 8501
 
 # TODO: specify default command - this is not required because you can always specify the command
 # either with the docker run command or in the docker-compose file
+# ENTRYPOINT ["streamlit", "run"]
+
+# CMD ["streamlit_app.py"]
+CMD ["streamlit", "run", "streamlit_app.py","--server.port=8501", "--server.address=127.0.0.1"]
+
+

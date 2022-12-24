@@ -1,0 +1,117 @@
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\models\xgb31.0.2.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\pupne\OneDrive\Documents\GitHub\Team_IFT6758\Team_8_IFT_6758\docker-project-template-main\serving\app.py", line 149, in predict
+    y_pred = model.predict(X_test.values)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1138, in predict
+    if self._can_use_inplace_predict():
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1073, in _can_use_inplace_predict
+    predictor = self.get_params().get("predictor", None)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0},"pred_proba":{"0":0.1013701633,"1":0.3197972476,"2":0.0239439849,"3":0.2636206448,"4":0.0281377267,"5":0.2232661098,"6":0.2342553139,"7":0.2637142837,"8":0.1425888389,"9":0.0452295616,"10":0.099432312,"11":0.2897078395,"12":0.1177595854,"13":0.2550501525,"14":0.0793283209,"15":0.2568279803,"16":0.1344517171,"17":0.1022539213,"18":0.1499228776,"19":0.0615377687,"20":0.107900776,"21":0.0472066291,"22":0.0631693453,"23":0.0720864609,"24":0.2149023861,"25":0.0560238846,"26":0.0990272835,"27":0.0669821054,"28":0.1664255559,"29":0.1181637347,"30":0.1257523596,"31":0.1198106781,"32":0.0732144341,"33":0.1776309162,"34":0.0989096835,"35":0.1545151323,"36":0.0865489468,"37":0.0936237127,"38":0.1670131236,"39":0.2464213371,"40":0.2288760692,"41":0.2399290055,"42":0.0722540915,"43":0.0743351802,"44":0.1013570875,"45":0.0721912757,"46":0.2462270856,"47":0.2041195035,"48":0.0465789139,"49":0.0871006176,"50":0.1382912397,"51":0.0947151706,"52":0.1402855515,"53":0.1016702652,"54":0.1130641475,"55":0.1406914294,"56":0.1564637274,"57":0.2205205113,"58":0.05882027,"59":0.3047170043}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0},"pred_proba":{"0":0.0673313141,"1":0.0567438416,"2":0.069565177,"3":0.229846999,"4":0.0842626542,"5":0.1374581009,"6":0.1063003838,"7":0.065995425,"8":0.1656068712,"9":0.2974874079,"10":0.2407539189,"11":0.1042802706,"12":0.1069532186,"13":0.0699810907,"14":0.1124989316,"15":0.118508175,"16":0.1542801112,"17":0.0557535738,"18":0.1059736535,"19":0.1088230237,"20":0.1478377134,"21":0.0802454501,"22":0.1455674618,"23":0.1000212431,"24":0.113291204,"25":0.1847637892,"26":0.072023429,"27":0.0659393966,"28":0.1739848554,"29":0.1235801429,"30":0.1313401908,"31":0.0716830865,"32":0.1419980526,"33":0.0901199505,"34":0.0429048464,"35":0.1733708531,"36":0.0625401139,"37":0.1899219006,"38":0.2522758245,"39":0.2000453323,"40":0.1221978515,"41":0.0454245917,"42":0.0465232618,"43":0.138343215,"44":0.0728811324,"45":0.0295368303,"46":0.1378264576,"47":0.224482134,"48":0.1515558809,"49":0.0652488619,"50":0.0769661143,"51":0.2177300602,"52":0.1071337759,"53":0.0295517594,"54":0.0236113612,"55":0.3539621532,"56":0.0393366367,"57":0.2777739763,"58":0.0776575953,"59":0.1471643448,"60":0.0357090235,"61":0.0656213388,"62":0.127275303,"63":0.1535691321,"64":0.1408162117,"65":0.2738706768,"66":0.1840487421,"67":0.0667240396,"68":0.2814674377}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0},"pred_proba":{"0":0.052720163,"1":0.240511328,"2":0.0275770072,"3":0.0438881144,"4":0.1625430137,"5":0.2158973366,"6":0.1301490813,"7":0.1664138287,"8":0.0588508844,"9":0.0302879792,"10":0.0491731986,"11":0.1166884005,"12":0.2308374941,"13":0.1939246505,"14":0.0428151414,"15":0.3023680747,"16":0.2713115811,"17":0.1431532502,"18":0.0400660522,"19":0.1364403814,"20":0.1183320731,"21":0.0279743746,"22":0.1086476445,"23":0.1590970457,"24":0.3770855069,"25":0.0715212822,"26":0.1796070337,"27":0.0118097207,"28":0.1323501319,"29":0.0417249203,"30":0.1705686301,"31":0.1426495612,"32":0.0420219824,"33":0.2043655813,"34":0.1495223641,"35":0.1444651634,"36":0.1154955849,"37":0.0332543291,"38":0.1587410718,"39":0.0843683705,"40":0.1347362399,"41":0.1269351244,"42":0.1370458007,"43":0.1328719705,"44":0.0163904745,"45":0.0804808512,"46":0.066126138,"47":0.1552258432,"48":0.1295955777,"49":0.1026489213,"50":0.1320418864,"51":0.1392264068,"52":0.0699714199,"53":0.2106141448,"54":0.2005741,"55":0.2317217141}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0},"pred_proba":{"0":0.0318357572,"1":0.1852140427,"2":0.2659628689,"3":0.1258393824,"4":0.1387298554,"5":0.0635317639,"6":0.0384575613,"7":0.0343903378,"8":0.1221491247,"9":0.0584841631,"10":0.0585051961,"11":0.06161521,"12":0.0683559179,"13":0.0365102105,"14":0.0408211388,"15":0.0981874242,"16":0.1841769069,"17":0.0582691506,"18":0.1330590099,"19":0.1506560892,"20":0.1094403863,"21":0.120359771,"22":0.0725677535,"23":0.0544224903,"24":0.2768948972,"25":0.3686355948,"26":0.3603067994,"27":0.1088717878,"28":0.157390967,"29":0.1757893562,"30":0.0971890241,"31":0.0958544239,"32":0.1540920436,"33":0.0617207326,"34":0.2338677198,"35":0.0311411768,"36":0.0592132136,"37":0.0603393912,"38":0.0768369138,"39":0.0916999504,"40":0.194390282,"41":0.0461574905,"42":0.1230303049,"43":0.0392101184,"44":0.2248781025,"45":0.1197046414,"46":0.1750593185,"47":0.0189026222,"48":0.0914194807,"49":0.3342485726,"50":0.0566382073,"51":0.2299136668,"52":0.1540474743,"53":0.0271960385,"54":0.1320043504,"55":0.1560998857,"56":0.1088612899,"57":0.1433910877,"58":0.0414810665,"59":0.0458904952,"60":0.093359068,"61":0.1840351075,"62":0.0723562837}}
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb3', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb3', 'version': '1.0.2'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\pupne\OneDrive\Documents\GitHub\Team_IFT6758\Team_8_IFT_6758\docker-project-template-main\serving\app.py", line 149, in predict
+    y_pred = model.predict(X_test.values)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1138, in predict
+    if self._can_use_inplace_predict():
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1073, in _can_use_inplace_predict
+    predictor = self.get_params().get("predictor", None)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\pupne\OneDrive\Documents\GitHub\Team_IFT6758\Team_8_IFT_6758\docker-project-template-main\serving\app.py", line 149, in predict
+    y_pred = model.predict(X_test.values)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1138, in predict
+    if self._can_use_inplace_predict():
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1073, in _can_use_inplace_predict
+    predictor = self.get_params().get("predictor", None)
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0},"pred_proba":{"0":0.0647505,"1":0.15482153,"2":0.0915139094,"3":0.0425117984,"4":0.0850760713,"5":0.2268286496,"6":0.3355867267,"7":0.1877750605,"8":0.0406391546,"9":0.0842435211,"10":0.0609074868,"11":0.1128058583,"12":0.1442519426,"13":0.0781121403,"14":0.0277232341,"15":0.1629343778,"16":0.0500902385,"17":0.1331352293,"18":0.0966933221,"19":0.0317615643,"20":0.2069199234,"21":0.3347176611,"22":0.3927597404,"23":0.0915205702,"24":0.0541603044,"25":0.0731918663,"26":0.0416164175,"27":0.2104504704,"28":0.0408383161,"29":0.1048364043,"30":0.108274743,"31":0.0405619815,"32":0.4643453062,"33":0.1310946047,"34":0.180763945,"35":0.0818653703,"36":0.0725161061,"37":0.2103368938,"38":0.1758254468,"39":0.0361412242,"40":0.0730300471,"41":0.141408965,"42":0.0936153084,"43":0.1057877615,"44":0.0180141181,"45":0.1967096776,"46":0.2393450588,"47":0.0472669415,"48":0.0596023351,"49":0.0457490794,"50":0.2342607379,"51":0.0432934761,"52":0.1494648159,"53":0.2567058802,"54":0.0637593865,"55":0.2235731035,"56":0.0280463099,"57":0.2059576213,"58":0.1846071929,"59":0.1375877857,"60":0.1595139503,"61":0.0885239169}}

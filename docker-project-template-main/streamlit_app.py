@@ -8,11 +8,11 @@ import json
 from comet_ml import API
 import os
 
-"""
-General template for your streamlit app. 
-Feel free to experiment with layout and adding functionality!
-Just make sure that the required functionality is included as well
-"""
+# """
+# General template for your streamlit app. 
+# Feel free to experiment with layout and adding functionality!
+# Just make sure that the required functionality is included as well
+# """
 
 sc = ServingClient()
 
@@ -97,7 +97,7 @@ with st.container():
                 # st.write(df_to_predict)
 
             predicted = sc.predict(df_to_predict)
-            st.write(predicted)
+            # st.write(predicted)
             predicted = json.loads(predicted)
             # st.write(predicted)
 
