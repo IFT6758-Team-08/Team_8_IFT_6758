@@ -173,7 +173,7 @@ def preprocess_data2(df):
     # Convert rebound to 0 and 1 instead of True and False
     df['rebound'] = df['rebound'].astype(int)
     # Rearranging columns to make it easier to process data
-    df = df[['period', 'period_time', 'coordinates_x', 'coordinates_y', 'shot_distance', 'shot_angle',
+    df = df[['team', 'period', 'period_time', 'coordinates_x', 'coordinates_y', 'shot_distance', 'shot_angle',
              'secondary_type', 'last_event_type', 'time_from_last_event(s)', 'distance_from_last_event', 'rebound',
              'angle_change', 'speed', 'last_event_coordinates_x', 'last_event_coordinates_y', 'goal']]
     # Convert period_time to seconds
@@ -189,7 +189,7 @@ def preprocess_data2(df):
 def filter_features(prev_events_df, goal_shot_df):
     # print(prev_events_df)
     # print(goal_shot_df)
-    goal_shot_df = goal_shot_df[["period", "period_time", "coordinates_x", "coordinates_y", "shot_distance", "shot_angle", "secondary_type", "goal"]]
+    goal_shot_df = goal_shot_df[["team", "period", "period_time", "coordinates_x", "coordinates_y", "shot_distance", "shot_angle", "secondary_type", "goal"]]
     new_df, last_shot_idx = add_prev_event_info(goal_shot_df, prev_events_df)
     new_df = new_df[new_df.last_event_type.notna()].reset_index(drop=True)
 
