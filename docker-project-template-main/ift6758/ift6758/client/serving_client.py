@@ -28,6 +28,7 @@ class ServingClient:
         Args:
             X (Dataframe): Input dataframe to submit to the prediction service.
         """
+        print("we are here")
         logger.info("Initializing request to generate predictions")
         # print(X)
         try:
