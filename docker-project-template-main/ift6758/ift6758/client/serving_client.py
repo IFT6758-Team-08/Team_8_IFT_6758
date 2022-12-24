@@ -6,9 +6,10 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+# df = pd.read_csv('../ift6758-project-template-main/notebooks/final_df.csv')
 
 class ServingClient:
-    def __init__(self, ip: str = "localhost", port: int = 5010, features=None):
+    def __init__(self, ip: str = "127.0.0.1", port: int = 8500, features=None):
         self.base_url = f"http://{ip}:{port}"
         logger.info(f"Initializing client; base URL: {self.base_url}")
 
@@ -28,12 +29,14 @@ class ServingClient:
             X (Dataframe): Input dataframe to submit to the prediction service.
         """
         logger.info("Initializing request to generate predictions")
+        # print(X)
         try:
             r = requests.post(
                 f"{self.base_url}/predict", 
                 json=X.to_json(orient = 'table')
             )
             logger.info("Successfully generated predictions")
+            # print(r.json())
             return r.json()
         except Exception as e:
             print(e)
@@ -43,6 +46,7 @@ class ServingClient:
 
     def logs(self) -> dict:
         """Get server logs"""
+        # print("over here")
         logger.info("Initializing request to server get logs")
         r = requests.get(
             f"{self.base_url}/logs"
@@ -71,14 +75,20 @@ class ServingClient:
         self.model = model
         self.version = version
         self.model_filename = f"{workspace}_{model}_{version}"
+        # print(self.base_url)
         r = requests.post(
             f"{self.base_url}/download_registry_model", 
             json= {'workspace': workspace, 'model': model, 'version': version}
         )
         logger.info("Successfully Downloaded Model")
-        # return r.json()
-        
+        print(r)
+        return r
+        # return r
         
 # if __name__=='__main__':
 #     sc = ServingClient()
-#     sc.logs()
+#     r = sc.download_registry_model('rachel98', 'xgb1', '1.0.0')
+#     print("it is")
+#     print(r)
+#     print("hi")
+# #     sc.logs()
