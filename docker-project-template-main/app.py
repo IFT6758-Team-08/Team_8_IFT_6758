@@ -15,7 +15,7 @@ from flask import Flask, jsonify, request, abort
 import sklearn
 import pandas as pd
 import joblib
-from utils import download_model
+from utils_ import download_model
 
 # import ift6758
 
@@ -41,7 +41,7 @@ def before_first_request():
     app.logger.info('Starting...')
     default_model = 'xgb3'
     
-    model_path = os.path.join(MODEL_REPO, default_model +'.joblib')
+    model_path = os.path.join(MODEL_REPO, default_model+"1.0.2" +'.joblib')
     print(model_path)
     print(os.path.exists(model_path))
     if os.path.exists(model_path):
@@ -51,6 +51,7 @@ def before_first_request():
         app.logger.info("Downloading default model from comet...")
         print("here")
         download_model("rachel98","ift-6758-team-8","DPA8v9aBQumK4h2GAkMp6RA5d","xgb3","1.0.2")
+        os.rename( os.path.join(MODEL_REPO, default_model+'.joblib'), model_path)
         print("downloaded")
     model = joblib.load(model_path)
     print(model)
@@ -99,13 +100,15 @@ def download_registry_model():
 
     # TODO: if yes, load that model and write to the log about the model change.  
     # eg: app.logger.info(<LOG STRING>)
-    model_path = os.path.join(MODEL_REPO, model_requested+'.joblib')
+    model_path = os.path.join(MODEL_REPO, model_requested + version+'.joblib')
     
     if os.path.exists(model_path):
         app.logger.info("Requested model exists in local model repository...")
     else:
         app.logger.info('Requested model needs to be downloaded from comet')
         download_model(workspace, "ift-6758-team-8", "DPA8v9aBQumK4h2GAkMp6RA5d", model_requested, version)
+        os.rename(os.path.join(MODEL_REPO, model_requested +'.joblib'), model_path)
+    print("loading model ", model_path)
     model = joblib.load(model_path)
     # app.logger.info()
     
@@ -135,8 +138,11 @@ def predict():
     print('Inside Predict endpoint')
     json = request.get_json()
     print("json is loaded")
-    X_test = pd.read_json(json, orient='table')
+    # print("the model is ", model)
+    # print("json is ", json)
+    X_test = pd.read_json(json, orient='table', convert_dates=False)
     print("Json is oriented")
+    print(X_test)
     y_pred = model.predict(X_test.values)
     print(y_pred)
     y_pred_prob = model.predict_proba(X_test.values)[:,1]
