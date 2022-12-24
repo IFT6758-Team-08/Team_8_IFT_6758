@@ -36,7 +36,8 @@ class ServingClient:
                 json=X.to_json(orient = 'table')
             )
             logger.info("Successfully generated predictions")
-            # print(r.json())
+            print(r)
+            print(r.json())
             return r.json()
         except Exception as e:
             print(e)
@@ -81,7 +82,7 @@ class ServingClient:
             json= {'workspace': workspace, 'model': model, 'version': version}
         )
         logger.info("Successfully Downloaded Model")
-        print(r)
+        # print(r)
         return r
         # return r
         
