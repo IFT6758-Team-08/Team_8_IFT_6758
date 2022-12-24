@@ -15,7 +15,7 @@ from flask import Flask, jsonify, request, abort
 import sklearn
 import pandas as pd
 import joblib
-from utils import download_model
+from utils_ import download_model
 
 # import ift6758
 
@@ -23,7 +23,7 @@ from utils import download_model
 LOG_FILE = os.environ.get("FLASK_LOG", "flask.log")
 MODEL_REPO = os.path.join('.','models')
 global model
-
+global model_requested
 app = Flask(__name__)
 
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
@@ -36,12 +36,14 @@ def before_first_request():
     """
 
     global model
-    
+    global model_requested
+
     print('Inside first request')
     app.logger.info('Starting...')
-    default_model = 'xgb3'
-    
-    model_path = os.path.join(MODEL_REPO, default_model+"1.0.2" +'.joblib')
+    default_model = 'xgb2'
+    model_requested = default_model
+
+    model_path = os.path.join(MODEL_REPO, default_model+"1.0.0" +'.joblib')
     print(model_path)
     print(os.path.exists(model_path))
     if os.path.exists(model_path):
@@ -50,11 +52,11 @@ def before_first_request():
     else:
         app.logger.info("Downloading default model from comet...")
         print("here")
-        download_model("rachel98","ift-6758-team-8","DPA8v9aBQumK4h2GAkMp6RA5d","xgb3","1.0.2")
+        download_model("rachel98","ift-6758-team-8","DPA8v9aBQumK4h2GAkMp6RA5d","xgb2","1.0.0")
         os.rename( os.path.join(MODEL_REPO, default_model+'.joblib'), model_path)
         print("downloaded")
     model = joblib.load(model_path)
-    print(model)
+    # print(model)
     app.logger.info("Loaded the Default Model: " + model_path)
     pass
 
@@ -87,6 +89,7 @@ def download_registry_model():
     
     """
     global model
+    global model_requested
     # Get POST json data
     json = request.get_json()
     print(json)
@@ -94,7 +97,7 @@ def download_registry_model():
 
     # TODO: check to see if the model you are querying for is already downloaded
     model_requested = json["model"]
-    print(model_requested)
+    # print(model_requested)
     workspace = json["workspace"]
     version = json["version"]
 
@@ -138,12 +141,13 @@ def predict():
     print('Inside Predict endpoint')
     json = request.get_json()
     print("json is loaded")
-    # print("the model is ", model)
+    print("the model is ", model_requested)
     # print("json is ", json)
     X_test = pd.read_json(json, orient='table', convert_dates=False)
     print("Json is oriented")
     print(X_test)
     y_pred = model.predict(X_test.values)
+    print("i am HERE")
     print(y_pred)
     y_pred_prob = model.predict_proba(X_test.values)[:,1]
     print("y pred prob", y_pred_prob)
