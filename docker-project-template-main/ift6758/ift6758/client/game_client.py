@@ -13,10 +13,12 @@ def get_data(GAME_ID):
     game = {}
     if r.get('liveData') is not None:  # if 'liveData' == None, then no data for that game.
         game['gameData'], game['liveData'] = r['gameData'],r['liveData']
+        game['liveData']['plays']['allPlays'] = game['liveData']['plays']['allPlays'][:]
+        return game
     else:
-        print("Data not found!")
-    game['liveData']['plays']['allPlays'] = game['liveData']['plays']['allPlays'][:]
-    return game
+        return "Game Id data not available!"
+
+
 
 
 def get_game_events(data: dict):
@@ -64,6 +66,7 @@ def get_metadata_rinkSide(period_info_list):
         if 'rinkSide' in period['home']:
             game_period_home[str(i + 1)] = period['home']['rinkSide']
             game_period_away[str(i + 1)] = period['away']['rinkSide']
+
 
     return game_period_home, game_period_away
 
@@ -134,23 +137,14 @@ def tidy_data(data):
     """
     # getting two dictionaries: play_by_play events (filtered_dict) and a rinkSide information for teams (game_metadata)
     filtered_dict, games_metadata = get_game_events(data)
-    # len(filtered_dict)
-    # print(filtered_dict[0].keys())
-    # print(type(filtered_dict))
-    # game_ids = filtered_dict.keys()
-    # print(len(filtered_dict))
+
     all_df = pd.DataFrame()
-    # print(all_df.keys())
-    # converting the dictionaries to a dataframe:
-    # print(filtered_dict)
+
     df = pd.json_normalize(filtered_dict)  # flattens the embedded dictionaries
     # print(df['liveData']['plays']['allPlays'])
     all_df = pd.concat([all_df, df])
     all_df.reset_index(inplace=True, drop=True)
-    # print(all_df.keys())
-    # print(all_df)
-    # shots_goals_df = get_shots_goals_events(all_df)  # only keeps the shots and goals events
-    # print(all_df["result.event"])
+
     filtered_df, last_event_idx, last_valid_event_idx, flag = filter_df(all_df, games_metadata)  # keeps only the columns we need
 
     return filtered_df, last_event_idx, last_valid_event_idx, flag
@@ -158,10 +152,15 @@ def tidy_data(data):
 
 def preprocess(df_all_season):
     # print(df_all_season)
+    # print(df_all_season['rinkSide'])
     df_all_season = df_all_season[df_all_season.rinkSide.notna() & df_all_season.coordinates_x.notna() & df_all_season.coordinates_y.notna()].reset_index(drop=True)
-    # print(df_all_season)
+    # print(df_all_season.empty)
+    # print("im here now")
+    if df_all_season.empty:
+        return 'Dataframe is missing some main features!'
     df_all_season["offensive_goal_post_x"] = [-89 if i=="right" else 89 for i in df_all_season["rinkSide"]]
     df_all_season["offensive_goal_post_y"] = 0
+    # print(df_all_season)
     df_all_season["shot_distance"] = df_all_season.apply(lambda x: np.sqrt((x['offensive_goal_post_x']-x['coordinates_x'])**2 + (x['offensive_goal_post_y']-x['coordinates_y'])**2), axis=1)
     df_all_season['goal'] = np.where(df_all_season['event']=="Goal", 1, 0)
     df_all_season['shot_angle'] = df_all_season.apply(lambda x: np.arcsin((x['offensive_goal_post_y']-x['coordinates_y'])/(x['shot_distance']+0.0001))*180/math.pi, axis=1)
@@ -169,6 +168,23 @@ def preprocess(df_all_season):
     df_all_season['is_empty_net'] = np.where(df_all_season['empty_net']==True, 1, 0)
     return df_all_season
 
+
+def preprocess_data2(df):
+    # Convert rebound to 0 and 1 instead of True and False
+    df['rebound'] = df['rebound'].astype(int)
+    # Rearranging columns to make it easier to process data
+    df = df[['period', 'period_time', 'coordinates_x', 'coordinates_y', 'shot_distance', 'shot_angle',
+             'secondary_type', 'last_event_type', 'time_from_last_event(s)', 'distance_from_last_event', 'rebound',
+             'angle_change', 'speed', 'last_event_coordinates_x', 'last_event_coordinates_y', 'goal']]
+    # Convert period_time to seconds
+    df['period_time'] = df['period_time'].apply(lambda x: int(x.split(':')[0]) * 60 + int(x.split(':')[1]))
+    # Convert secondary_type and last_event_type to numeric
+    # df['secondary_type'] = df['secondary_type'].astype('category').cat.codes
+    # df['last_event_type'] = df['last_event_type'].astype('category').cat.codes
+    # Convert secondary_type and last_event_type to dummy variables
+    df = pd.get_dummies(df, columns=['secondary_type', 'last_event_type'], drop_first=True)
+
+    return df
 ################feature eng 2###########################
 def filter_features(prev_events_df, goal_shot_df):
     # print(prev_events_df)
@@ -177,14 +193,8 @@ def filter_features(prev_events_df, goal_shot_df):
     new_df, last_shot_idx = add_prev_event_info(goal_shot_df, prev_events_df)
     new_df = new_df[new_df.last_event_type.notna()].reset_index(drop=True)
 
-    # For test data
-    # new_df = add_prev_event_info(new_df, "M2_regular_2020_cleaned1.csv")
-    # new_df = add_prev_event_info(new_df, "M2_playoff_2020_cleaned1.csv")
     new_df = create_more_features(new_df)
-    #new_df.to_csv("M2_added_features_all_test_regular.csv")
-    # new_df.to_csv("M2_added_features_all_test_playoff.csv")
-    # new_df.to_csv("M2_added_features_all.csv")
-    # print(new_df.head(15))
+
     return new_df, last_shot_idx
 
 def time_diff(time1, time2):
@@ -219,11 +229,7 @@ def add_prev_event_info(goal_shot_df, prev_events_df):
     for i in range(len(goal_shot_df)):
         shot = goal_shot_df.iloc[i]
         period, period_time, x, y = shot["period"], shot["period_time"], shot["coordinates_x"], shot["coordinates_y"]
-        # current_event = prev_events_df[prev_events_df["game_id"] == gameid]
-        # current_event = prev_events_df[prev_events_df["period"] == period]
-        # current_event = current_event[current_event["period_time"] == period_time]
-        # current_event = current_event[current_event["coordinates_x"] == x]
-        # current_event = current_event[current_event["coordinates_y"] == y]
+
         current_event_index = shot_idx[i]
 
         # print(current_event_index)
@@ -299,50 +305,67 @@ def get_new_events_only(all_data, tracker_game):
 
 def ping_game_client(GAME_ID):
     data = get_data(GAME_ID)
-    if os.path.exists("tracker.json"):
-        with open("tracker.json", "r") as file:
-            old_tracker = json.load(file)
+    if data == "Game Id data not available!":
+        return "Game Id data not available!", "N/A", "N/A", "N/A", "N/A", "N/A"
     else:
-        old_tracker = {}
-
-    if GAME_ID in old_tracker:
-        old_tracker_game = old_tracker[GAME_ID]
-        prev_last_valid_event_idx = old_tracker_game["last_val_idx"]
-        prev_last_event_idx = old_tracker_game["last_idx"]
-
-        number_of_all_events = len(data['liveData']['plays']['allPlays'])
-        if prev_last_event_idx + 1 == number_of_all_events:
-            print("We have already checked all the available events!")
-            return
+        away_team = data['liveData']['boxscore']['teams']['away']['team']['name']
+        home_team = data['liveData']['boxscore']['teams']['home']['team']['name']
+        cur_period = data['liveData']['plays']['allPlays'][-1]['about']['period']
+        remaining_time = data['liveData']['plays']['allPlays'][-1]['about']['periodTimeRemaining']
+        score = data['liveData']['plays']['allPlays'][-1]['about']['goals']
+        if os.path.exists("tracker.json"):
+            with open("tracker.json", "r") as file:
+                old_tracker = json.load(file)
         else:
-            data1 = copy.deepcopy(data)
-            # print(len(data['liveData']['plays']['allPlays']))
-            data, last_val_event = get_new_events_only(data1, old_tracker_game)
-            # print(data['liveData']['plays']['allPlays'][0])
-            # print("@@@@@@@@@@@@")
-    else:
-        prev_last_valid_event_idx = 0
-        prev_last_event_idx = 0
+            old_tracker = {}
 
-    # print(data['liveData']['plays']['allPlays'][0])
-    df, last_event_idx, last_valid_event_idx, flag = tidy_data(data)
-    if flag: #if there was at least one shot
-        all_events = preprocess(df)
-        goal_shot_df = all_events[(all_events['event'] == 'Goal') | (all_events['event'] == 'Shot')]
-        final_df, last_shot_idx = filter_features(all_events, goal_shot_df)
-        print(final_df)
-        print(final_df.keys())
-    else:
-        print("No new shot was found!")
-    # print(last_valid_event_idx, prev_last_valid_event_idx)
-    tracker = {"last_val_idx": int(last_valid_event_idx + prev_last_valid_event_idx), "last_idx": int(last_event_idx + prev_last_valid_event_idx)}
+        if GAME_ID in old_tracker:
+            old_tracker_game = old_tracker[GAME_ID]
+            prev_last_valid_event_idx = old_tracker_game["last_val_idx"]
+            prev_last_event_idx = old_tracker_game["last_idx"]
+
+            number_of_all_events = len(data['liveData']['plays']['allPlays'])
+            if prev_last_event_idx + 1 == number_of_all_events:
+                # print("We have already checked all the available events!")
+                return "We have already checked all the available events!", away_team, home_team, cur_period, remaining_time, score
+            else:
+                data1 = copy.deepcopy(data)
+                # print(len(data['liveData']['plays']['allPlays']))
+                data, last_val_event = get_new_events_only(data1, old_tracker_game)
+                # print(data['liveData']['plays']['allPlays'][0])
+                # print("@@@@@@@@@@@@")
+        else:
+            prev_last_valid_event_idx = 0
+            prev_last_event_idx = 0
+
+        # print(data['liveData']['plays']['allPlays'][0])
+        df, last_event_idx, last_valid_event_idx, flag = tidy_data(data)
+
+        if flag: #if there was at least one shot
+            all_events = preprocess(df)
+            if type(all_events) is str:
+                return all_events, away_team, home_team, cur_period, remaining_time, score
+            else:
+                goal_shot_df = all_events[(all_events['event'] == 'Goal') | (all_events['event'] == 'Shot')]
+                my_df, last_shot_idx = filter_features(all_events, goal_shot_df)
+                final_df = preprocess_data2(my_df)
+
+            # print(final_df)
+            # print(final_df.keys())
+        else:
+            # print("No new shot was found!")
+            return "No new shot was found!", away_team, home_team, cur_period, remaining_time, score
+        # print(last_valid_event_idx, prev_last_valid_event_idx)
+        tracker = {"last_val_idx": int(last_valid_event_idx + prev_last_valid_event_idx), "last_idx": int(last_event_idx + prev_last_valid_event_idx)}
 
 
-    old_tracker[GAME_ID] = tracker
+        old_tracker[GAME_ID] = tracker
 
-    with open("tracker.json", "w") as file:
-        json.dump(old_tracker, file)
-    # print(final_df.iloc[0])
+        with open("tracker.json", "w") as file:
+            json.dump(old_tracker, file)
+        # print(final_df.iloc[0])
+        return final_df, away_team, home_team, cur_period, remaining_time, score
 
-GAME_ID = "2021020329"
-ping_game_client(GAME_ID)
+# GAME_ID = "2021020324"
+# a=ping_game_client(GAME_ID)
+# print(a)
