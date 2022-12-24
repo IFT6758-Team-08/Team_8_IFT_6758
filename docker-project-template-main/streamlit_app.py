@@ -17,22 +17,21 @@ sc = ServingClient()
 
 st.title("Hockey Visualization App")
 
-global temp
-temp = "hi"
+model = 'xgb3'
 
 with st.sidebar:
     # Dropdown for Workspace selection
     workspace = st.selectbox("Workspace", ["rachel98"])
     # Dropdown for Model selection
-    model = st.selectbox("Model", ["xgb1", "xgb2", "xgb3"])
+    m = st.selectbox("Model", ["xgb3"])
     # Dropdown for Version selection
-    version = st.selectbox("Version", ["1.0.0", "1.0.1", "1.0.2"])
+    version = st.selectbox("Version", ["1.0.2", "1.0.1", "1.0.0"])
     get_model = st.button("Get Model")
-    print(model)
+    # print(model)
     if get_model:
         #todo: call download model func
 
-        temp = "bye"
+        model = m
         a = sc.download_registry_model(workspace, model, version)
         # print(a)
         st.write("model downloaded")
@@ -48,7 +47,6 @@ with st.container():
 
     # Display game data if button is pressed
     if load_data:
-        st.write(temp)
         ping = gc.ping_game_client(game_id)
         # st.write("Game data")
         res, away, home, cur_period, remaining_time, score = ping
@@ -59,21 +57,48 @@ with st.container():
         st.text("Scores: ")
         st.write("away: ", str(score['away']))
         st.write("home: ", str(score['home']))
-        st.write(res)
-
-        if model == 'xgb3':
-            features = ['shot_angle', 'speed', 'shot_distance', 'distance_from_last_event', 'period_time', 'coordinates_y', 'time_from_last_event(s)']
-        elif model == 'xgb2':
-            features = ['period','period_time','coordinates_x','coordinates_y','shot_distance','shot_angle','secondary_type','last_event_type','time_from_last_event(s)','distance_from_last_event','rebound','angle_change','speed','last_event_coordinates_x','last_event_coordinates_y','goal']
+        # st.write(res)
 
         print("model is", model)
         if type(res) is not str:
-            df_to_predict = res[features]
-            st.write("using model ", model, " to predict...")
+            if model == 'xgb3':
+                features = ['shot_angle', 'speed', 'shot_distance', 'distance_from_last_event', 'period_time',
+                            'coordinates_y', 'time_from_last_event(s)']
+                teams = res['team']
+                df_to_predict = res[features]
+            # elif model == 'xgb2':
+            #     features = ['period', 'period_time', 'coordinates_x', 'coordinates_y', 'shot_distance', 'shot_angle',
+            #                 'secondary_type', 'last_event_type', 'time_from_last_event(s)', 'distance_from_last_event',
+            #                 'rebound', 'angle_change', 'speed', 'last_event_coordinates_x', 'last_event_coordinates_y',
+            #                 'goal']
+            #     df_to_predict = res[features]
+            # elif model == 'xgb1':
+            #     df_to_predict = res[:]
+
+            # print(df_to_predict)
+
             predicted = sc.predict(df_to_predict)
-            # st.write(predicted)
             predicted = json.loads(predicted)
-            st.write(predicted['pred_proba'].values())
+            # st.write(predicted)
+
+            # st.write("using model ", predicted['model']['0'], " to predict...")
+            # st.write(predicted['pred_proba'].values())
+
+
+            df_to_predict['probability'] = predicted['pred_proba'].values()
+
+            df_with_teams = df_to_predict.copy()
+            df_with_teams['team'] = list(teams)
+            away_prob = sum(df_with_teams[df_with_teams['team'] == away]['probability'])
+            home_prob = sum(df_with_teams[df_with_teams['team'] == home]['probability'])
+
+            st.write("home team xG so far: ", home_prob, 'diff: ', home_prob - score['home'])
+            st.write("away team xG so far: ", away_prob, 'diff: ', away_prob - score['away'])
+            st.text("data used for prediction and probability")
+            st.write(df_to_predict)
+
+        else:
+            st.write(res)
 
 
 
