@@ -1,117 +1,808 @@
 INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:waitress:Serving on http://127.0.0.1:8500
 INFO:app:Starting...
 INFO:app:Downloading default model from comet...
-INFO:app:Loaded the Default Model: .\models\xgb31.0.2.joblib
+INFO:app:Loaded the Default Model: .\..\models\xgb3.joblib
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0,"69":0,"70":0,"71":0,"72":0,"73":0,"74":0,"75":0,"76":0,"77":0,"78":0,"79":0},"pred_proba":{"0":0.0323174708,"1":0.0100717526,"2":0.1527483165,"3":0.0394504517,"4":0.3537943363,"5":0.0676210597,"6":0.1059250459,"7":0.043636553,"8":0.0951672271,"9":0.0154288104,"10":0.0595515072,"11":0.0580917411,"12":0.2152232528,"13":0.1970843077,"14":0.2229324579,"15":0.3876119554,"16":0.0403502285,"17":0.1604975909,"18":0.027292626,"19":0.0552758202,"20":0.0646710992,"21":0.037419457,"22":0.0439313389,"23":0.0319844224,"24":0.0226702075,"25":0.0847891942,"26":0.0516163483,"27":0.0661505833,"28":0.0133534139,"29":0.0988415182,"30":0.2460550219,"31":0.0404299684,"32":0.1635563374,"33":0.0204891432,"34":0.021877395,"35":0.0102899233,"36":0.0536887012,"37":0.03402327,"38":0.0521358587,"39":0.0251434743,"40":0.0657846034,"41":0.097153157,"42":0.0499461479,"43":0.0631301031,"44":0.087544322,"45":0.0736476034,"46":0.1001779363,"47":0.0450992621,"48":0.0376548879,"49":0.0942069292,"50":0.1795104295,"51":0.0433780253,"52":0.1647515297,"53":0.0391225964,"54":0.0325200371,"55":0.0158731434,"56":0.0318858996,"57":0.02259643,"58":0.0460660011,"59":0.0658966675,"60":0.0452873483,"61":0.050805185,"62":0.14865762,"63":0.1014574394,"64":0.1090582535,"65":0.2426220775,"66":0.3465343416,"67":0.0111038452,"68":0.0129685188,"69":0.0178891234,"70":0.0167083684,"71":0.0431704707,"72":0.0812210143,"73":0.0094914539,"74":0.2226794213,"75":0.0278398618,"76":0.0315669999,"77":0.0524189994,"78":0.0630072802,"79":0.3893767595}}
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3.joblib
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0},"pred_proba":{"0":0.0640368015,"1":0.1140196025,"2":0.0602516308,"3":0.0125623746,"4":0.0378770195,"5":0.0309889447,"6":0.0897674412,"7":0.0397161581,"8":0.0198367704,"9":0.0187224019,"10":0.042068962,"11":0.0796578974,"12":0.0217003953,"13":0.078764759,"14":0.0841893181,"15":0.0354316235,"16":0.1574721485,"17":0.1799949557,"18":0.0750716403,"19":0.0591318235,"20":0.0764740482,"21":0.0207605604,"22":0.0470583998,"23":0.1153604016,"24":0.1092995331,"25":0.0079921298,"26":0.0093234321,"27":0.0107543468,"28":0.1074456647,"29":0.0070353271,"30":0.0185272712,"31":0.0235604998,"32":0.1662210077,"33":0.1215321496,"34":0.042483829,"35":0.0791813582,"36":0.035998635,"37":0.0624770746,"38":0.0252943989,"39":0.0918416381,"40":0.091625765,"41":0.099091202,"42":0.0300740674,"43":0.1932729334,"44":0.2838574648,"45":0.0128987497,"46":0.1605495363,"47":0.0178157259,"48":0.2197987586,"49":0.0445785411,"50":0.2900510728,"51":0.1999349296,"52":0.0450771116,"53":0.0508147851,"54":0.1184067428,"55":0.0639764145,"56":0.1487579942}}
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 129, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Default model exists in local model repository...
+INFO:app:Loaded the Default Model: .\..\models\xgb3.joblib
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0},"pred_proba":{"0":0.0122149717,"1":0.0123579176,"2":0.0190610383,"3":0.0303444564,"4":0.0107662492,"5":0.0415499806,"6":0.0877946392,"7":0.0435070507,"8":0.0834685415,"9":0.0083113322,"10":0.3161996603,"11":0.1939327717,"12":0.0783914924,"13":0.0921784341,"14":0.1897167563,"15":0.0502039939,"16":0.0608110726,"17":0.2453619242,"18":0.2652579844,"19":0.1457001567,"20":0.0217593331,"21":0.1960882246,"22":0.1120383888,"23":0.1658270806,"24":0.2360282987,"25":0.0279654097,"26":0.102403149,"27":0.0885370374,"28":0.1294911206,"29":0.0786850974,"30":0.2181709409,"31":0.0299630612,"32":0.1685027331,"33":0.0244740304,"34":0.0574847497,"35":0.0812370256,"36":0.062447086,"37":0.0504325405,"38":0.0168219898,"39":0.3761583269,"40":0.0973873585,"41":0.1926830411,"42":0.0242841914,"43":0.0568532385,"44":0.040212471,"45":0.0300269146,"46":0.155861482,"47":0.0119098527,"48":0.1017452404,"49":0.0276527312,"50":0.1892893165,"51":0.2662013769,"52":0.0904647186,"53":0.0953672975,"54":0.0942930728,"55":0.0748983324,"56":0.2180253714,"57":0.1071598455}}
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 129, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0},"pred_proba":{"0":0.0640368015,"1":0.1140196025,"2":0.0602516308,"3":0.0125623746,"4":0.0378770195,"5":0.0309889447,"6":0.0897674412,"7":0.0397161581,"8":0.0198367704,"9":0.0187224019,"10":0.042068962,"11":0.0796578974,"12":0.0217003953,"13":0.078764759,"14":0.0841893181,"15":0.0354316235,"16":0.1574721485,"17":0.1799949557,"18":0.0750716403,"19":0.0591318235,"20":0.0764740482,"21":0.0207605604,"22":0.0470583998,"23":0.1153604016,"24":0.1092995331,"25":0.0079921298,"26":0.0093234321,"27":0.0107543468,"28":0.1074456647,"29":0.0070353271,"30":0.0185272712,"31":0.0235604998,"32":0.1662210077,"33":0.1215321496,"34":0.042483829,"35":0.0791813582,"36":0.035998635,"37":0.0624770746,"38":0.0252943989,"39":0.0918416381,"40":0.091625765,"41":0.099091202,"42":0.0300740674,"43":0.1932729334,"44":0.2838574648,"45":0.0128987497,"46":0.1605495363,"47":0.0178157259,"48":0.2197987586,"49":0.0445785411,"50":0.2900510728,"51":0.1999349296,"52":0.0450771116,"53":0.0508147851,"54":0.1184067428,"55":0.0639764145,"56":0.1487579942}}
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Default model exists in local model repository...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0},"pred_proba":{"0":0.0122149717,"1":0.0123579176,"2":0.0190610383,"3":0.0303444564,"4":0.0107662492,"5":0.0415499806,"6":0.0877946392,"7":0.0435070507,"8":0.0834685415,"9":0.0083113322,"10":0.3161996603,"11":0.1939327717,"12":0.0783914924,"13":0.0921784341,"14":0.1897167563,"15":0.0502039939,"16":0.0608110726,"17":0.2453619242,"18":0.2652579844,"19":0.1457001567,"20":0.0217593331,"21":0.1960882246,"22":0.1120383888,"23":0.1658270806,"24":0.2360282987,"25":0.0279654097,"26":0.102403149,"27":0.0885370374,"28":0.1294911206,"29":0.0786850974,"30":0.2181709409,"31":0.0299630612,"32":0.1685027331,"33":0.0244740304,"34":0.0574847497,"35":0.0812370256,"36":0.062447086,"37":0.0504325405,"38":0.0168219898,"39":0.3761583269,"40":0.0973873585,"41":0.1926830411,"42":0.0242841914,"43":0.0568532385,"44":0.040212471,"45":0.0300269146,"46":0.155861482,"47":0.0119098527,"48":0.1017452404,"49":0.0276527312,"50":0.1892893165,"51":0.2662013769,"52":0.0904647186,"53":0.0953672975,"54":0.0942930728,"55":0.0748983324,"56":0.2180253714,"57":0.1071598455}}
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 129, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0},"pred_proba":{"0":0.0667483881,"1":0.0342992544,"2":0.0440761819,"3":0.0111229261,"4":0.0491798967,"5":0.3557063341,"6":0.0381147377,"7":0.0806646794,"8":0.0144483205,"9":0.0950230733,"10":0.103593722,"11":0.05646744,"12":0.0067769554,"13":0.0204795282,"14":0.0458003134,"15":0.0342032202,"16":0.1002748236,"17":0.0303711127,"18":0.0200610142,"19":0.0114407418,"20":0.1300801933,"21":0.0718255788,"22":0.1534033567,"23":0.3966231346,"24":0.1313038021,"25":0.1861625314,"26":0.0364527926,"27":0.0630911216,"28":0.0986763611,"29":0.0187583361,"30":0.0368297212,"31":0.137462005,"32":0.0543983988,"33":0.0526901521,"34":0.0472852513,"35":0.1128080264,"36":0.118181631,"37":0.2597357929,"38":0.065404281,"39":0.0124986889,"40":0.1156122088,"41":0.1176193431,"42":0.0252432097,"43":0.1089422479,"44":0.2038344592,"45":0.0488424823,"46":0.0542209782,"47":0.0806942657,"48":0.0176744238,"49":0.1116738841,"50":0.0199138317,"51":0.0311916005,"52":0.4526778758,"53":0.0954825431,"54":0.1873253584,"55":0.0202779826,"56":0.0196967702,"57":0.1523749679,"58":0.0136325378,"59":0.0440838672,"60":0.0202853903,"61":0.0201389864,"62":0.0456568338,"63":0.1082456037,"64":0.0092481477}}
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 129, in download_registry_model
+    print(model2)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1812, in full_dispatch_request
+    self.ensure_sync(func)()
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 63, in before_first_request
+    model = pk.load(f)
+_pickle.UnpicklingError: invalid load key, '\x0d'.
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
 INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
 INFO:app:Requested model needs to be downloaded from comet
 INFO:app:Requested model successfully loaded!
 ERROR:app:Exception on /predict [POST]
 Traceback (most recent call last):
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\pupne\OneDrive\Documents\GitHub\Team_IFT6758\Team_8_IFT_6758\docker-project-template-main\serving\app.py", line 149, in predict
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 165, in predict
     y_pred = model.predict(X_test.values)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
     class_probs = super().predict(
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1138, in predict
-    if self._can_use_inplace_predict():
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1073, in _can_use_inplace_predict
-    predictor = self.get_params().get("predictor", None)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2268, in inplace_predict
+    raise ValueError(
+ValueError: Feature shape mismatch, expected: 7, got 28
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model exists in local model repository...
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 132, in download_registry_model
+    print(model2)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
     params.update(cp.__class__.get_params(cp, deep))
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
     config = json.loads(self.get_booster().save_config())
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\core.py", line 1732, in save_config
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 165, in predict
+    y_pred = model.predict(X_test.values)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2268, in inplace_predict
+    raise ValueError(
+ValueError: Feature shape mismatch, expected: 7, got 28
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 165, in predict
+    y_pred = model.predict(X_test.values)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2268, in inplace_predict
+    raise ValueError(
+ValueError: Feature shape mismatch, expected: 7, got 28
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 165, in predict
+    y_pred = model.predict(X_test.values)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2290, in inplace_predict
+    data, _ = _ensure_np_dtype(data, data.dtype)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\data.py", line 160, in _ensure_np_dtype
+    data = data.astype(np.float32, copy=False)
+ValueError: could not convert string to float: 'Shot'
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0},"pred_proba":{"0":0.0525624678,"1":0.0780862346,"2":0.1576308906,"3":0.0318366252,"4":0.1404012144,"5":0.0819920748,"6":0.1354899555,"7":0.0457981564,"8":0.2034410536,"9":0.1293352991,"10":0.0430843122,"11":0.158296451,"12":0.1938259155,"13":0.1512832642,"14":0.2054220885,"15":0.1663518399,"16":0.3171046078,"17":0.0279964879,"18":0.1582365334,"19":0.1248207912,"20":0.0510931499,"21":0.1243448779,"22":0.0864642784,"23":0.2858832777,"24":0.424831897,"25":0.0587399378,"26":0.0548963584,"27":0.2013909519,"28":0.0505053625,"29":0.1551590562,"30":0.0769179985,"31":0.0463392287,"32":0.1699266732,"33":0.2051827908,"34":0.1847181618,"35":0.1204658523,"36":0.0556731783,"37":0.0413947925,"38":0.0296532176,"39":0.203588292,"40":0.0250123944,"41":0.2273030728,"42":0.0269780457,"43":0.0418311432,"44":0.1092255935,"45":0.0940256715,"46":0.2664794922,"47":0.2206897289,"48":0.2227775455,"49":0.064837344,"50":0.2791991532,"51":0.1881905049,"52":0.0784083754,"53":0.0997890905,"54":0.1252727509,"55":0.0474950708,"56":0.2549093962,"57":0.0561477356}}
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 165, in predict
+    y_pred = model.predict(X_test.values)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2268, in inplace_predict
+    raise ValueError(
+ValueError: Feature shape mismatch, expected: 28, got 7
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb1', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 132, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb1', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 132, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb1', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 132, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+WARNING:waitress:1 thread(s) still running
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb1', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 133, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb1', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 133, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1842, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2134, in make_response
+    raise TypeError(
+TypeError: The view function for 'download_registry_model' did not return a valid response. The function either returned None or ended without a return statement.
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb1', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 134, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
     _check_call(_LIB.XGBoosterSaveJsonConfig(
 OSError: exception: access violation reading 0x0000000000000000
 INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
 INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
-INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0},"pred_proba":{"0":0.1013701633,"1":0.3197972476,"2":0.0239439849,"3":0.2636206448,"4":0.0281377267,"5":0.2232661098,"6":0.2342553139,"7":0.2637142837,"8":0.1425888389,"9":0.0452295616,"10":0.099432312,"11":0.2897078395,"12":0.1177595854,"13":0.2550501525,"14":0.0793283209,"15":0.2568279803,"16":0.1344517171,"17":0.1022539213,"18":0.1499228776,"19":0.0615377687,"20":0.107900776,"21":0.0472066291,"22":0.0631693453,"23":0.0720864609,"24":0.2149023861,"25":0.0560238846,"26":0.0990272835,"27":0.0669821054,"28":0.1664255559,"29":0.1181637347,"30":0.1257523596,"31":0.1198106781,"32":0.0732144341,"33":0.1776309162,"34":0.0989096835,"35":0.1545151323,"36":0.0865489468,"37":0.0936237127,"38":0.1670131236,"39":0.2464213371,"40":0.2288760692,"41":0.2399290055,"42":0.0722540915,"43":0.0743351802,"44":0.1013570875,"45":0.0721912757,"46":0.2462270856,"47":0.2041195035,"48":0.0465789139,"49":0.0871006176,"50":0.1382912397,"51":0.0947151706,"52":0.1402855515,"53":0.1016702652,"54":0.1130641475,"55":0.1406914294,"56":0.1564637274,"57":0.2205205113,"58":0.05882027,"59":0.3047170043}}
-INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0},"pred_proba":{"0":0.0673313141,"1":0.0567438416,"2":0.069565177,"3":0.229846999,"4":0.0842626542,"5":0.1374581009,"6":0.1063003838,"7":0.065995425,"8":0.1656068712,"9":0.2974874079,"10":0.2407539189,"11":0.1042802706,"12":0.1069532186,"13":0.0699810907,"14":0.1124989316,"15":0.118508175,"16":0.1542801112,"17":0.0557535738,"18":0.1059736535,"19":0.1088230237,"20":0.1478377134,"21":0.0802454501,"22":0.1455674618,"23":0.1000212431,"24":0.113291204,"25":0.1847637892,"26":0.072023429,"27":0.0659393966,"28":0.1739848554,"29":0.1235801429,"30":0.1313401908,"31":0.0716830865,"32":0.1419980526,"33":0.0901199505,"34":0.0429048464,"35":0.1733708531,"36":0.0625401139,"37":0.1899219006,"38":0.2522758245,"39":0.2000453323,"40":0.1221978515,"41":0.0454245917,"42":0.0465232618,"43":0.138343215,"44":0.0728811324,"45":0.0295368303,"46":0.1378264576,"47":0.224482134,"48":0.1515558809,"49":0.0652488619,"50":0.0769661143,"51":0.2177300602,"52":0.1071337759,"53":0.0295517594,"54":0.0236113612,"55":0.3539621532,"56":0.0393366367,"57":0.2777739763,"58":0.0776575953,"59":0.1471643448,"60":0.0357090235,"61":0.0656213388,"62":0.127275303,"63":0.1535691321,"64":0.1408162117,"65":0.2738706768,"66":0.1840487421,"67":0.0667240396,"68":0.2814674377}}
-INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0},"pred_proba":{"0":0.052720163,"1":0.240511328,"2":0.0275770072,"3":0.0438881144,"4":0.1625430137,"5":0.2158973366,"6":0.1301490813,"7":0.1664138287,"8":0.0588508844,"9":0.0302879792,"10":0.0491731986,"11":0.1166884005,"12":0.2308374941,"13":0.1939246505,"14":0.0428151414,"15":0.3023680747,"16":0.2713115811,"17":0.1431532502,"18":0.0400660522,"19":0.1364403814,"20":0.1183320731,"21":0.0279743746,"22":0.1086476445,"23":0.1590970457,"24":0.3770855069,"25":0.0715212822,"26":0.1796070337,"27":0.0118097207,"28":0.1323501319,"29":0.0417249203,"30":0.1705686301,"31":0.1426495612,"32":0.0420219824,"33":0.2043655813,"34":0.1495223641,"35":0.1444651634,"36":0.1154955849,"37":0.0332543291,"38":0.1587410718,"39":0.0843683705,"40":0.1347362399,"41":0.1269351244,"42":0.1370458007,"43":0.1328719705,"44":0.0163904745,"45":0.0804808512,"46":0.066126138,"47":0.1552258432,"48":0.1295955777,"49":0.1026489213,"50":0.1320418864,"51":0.1392264068,"52":0.0699714199,"53":0.2106141448,"54":0.2005741,"55":0.2317217141}}
-INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0},"pred_proba":{"0":0.0318357572,"1":0.1852140427,"2":0.2659628689,"3":0.1258393824,"4":0.1387298554,"5":0.0635317639,"6":0.0384575613,"7":0.0343903378,"8":0.1221491247,"9":0.0584841631,"10":0.0585051961,"11":0.06161521,"12":0.0683559179,"13":0.0365102105,"14":0.0408211388,"15":0.0981874242,"16":0.1841769069,"17":0.0582691506,"18":0.1330590099,"19":0.1506560892,"20":0.1094403863,"21":0.120359771,"22":0.0725677535,"23":0.0544224903,"24":0.2768948972,"25":0.3686355948,"26":0.3603067994,"27":0.1088717878,"28":0.157390967,"29":0.1757893562,"30":0.0971890241,"31":0.0958544239,"32":0.1540920436,"33":0.0617207326,"34":0.2338677198,"35":0.0311411768,"36":0.0592132136,"37":0.0603393912,"38":0.0768369138,"39":0.0916999504,"40":0.194390282,"41":0.0461574905,"42":0.1230303049,"43":0.0392101184,"44":0.2248781025,"45":0.1197046414,"46":0.1750593185,"47":0.0189026222,"48":0.0914194807,"49":0.3342485726,"50":0.0566382073,"51":0.2299136668,"52":0.1540474743,"53":0.0271960385,"54":0.1320043504,"55":0.1560998857,"56":0.1088612899,"57":0.1433910877,"58":0.0414810665,"59":0.0458904952,"60":0.093359068,"61":0.1840351075,"62":0.0723562837}}
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 134, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+    params.update(cp.__class__.get_params(cp, deep))
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+    config = json.loads(self.get_booster().save_config())
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
+    _check_call(_LIB.XGBoosterSaveJsonConfig(
+OSError: exception: access violation reading 0x0000000000000000
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
 INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
-INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
-INFO:app:{'workspace': 'rachel98', 'model': 'xgb3', 'version': '1.0.0'}
 INFO:app:Requested model needs to be downloaded from comet
 INFO:app:Requested model successfully loaded!
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 169, in predict
+    y_pred = model.predict(X_test.values)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2268, in inplace_predict
+    raise ValueError(
+ValueError: Feature shape mismatch, expected: 7, got 28
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0},"pred_proba":{"0":0.1301126778,"1":0.1792211086,"2":0.1258217394,"3":0.2232190371,"4":0.0823415145,"5":0.0748467296,"6":0.1210598946,"7":0.051883664,"8":0.0373489894,"9":0.2711847425,"10":0.3068296313,"11":0.0670028627,"12":0.1014722213,"13":0.0934416354,"14":0.1754492819,"15":0.1732481271,"16":0.0611791201,"17":0.0754804909,"18":0.09412916,"19":0.1370294094,"20":0.2685672939,"21":0.1488727182,"22":0.4107461572,"23":0.0351915509,"24":0.2133264989,"25":0.2652400434,"26":0.0604346655,"27":0.3780790567,"28":0.0854228735,"29":0.2061252445,"30":0.1551913023,"31":0.1594150215,"32":0.0555275306,"33":0.1838988066,"34":0.0527369119,"35":0.0739972666,"36":0.0617685951,"37":0.0223399401,"38":0.0873669609,"39":0.0615496151,"40":0.0660258383,"41":0.0514517576,"42":0.063996315,"43":0.0534365326,"44":0.0514579378,"45":0.1344404668,"46":0.1381838024,"47":0.0594390929,"48":0.0407422259,"49":0.1440271437,"50":0.0938675404,"51":0.2871340513,"52":0.1442958415,"53":0.1523462087,"54":0.0516952686,"55":0.107226193,"56":0.1167527288,"57":0.1474156678,"58":0.0773953721,"59":0.1797239184,"60":0.2133506984,"61":0.1463259161}}
 INFO:app:{'workspace': 'rachel98', 'model': 'xgb3', 'version': '1.0.2'}
 INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
-INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
-INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
-ERROR:app:Exception on /predict [POST]
+ERROR:app:Exception on /download_registry_model [POST]
 Traceback (most recent call last):
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\pupne\OneDrive\Documents\GitHub\Team_IFT6758\Team_8_IFT_6758\docker-project-template-main\serving\app.py", line 149, in predict
-    y_pred = model.predict(X_test.values)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
-    class_probs = super().predict(
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1138, in predict
-    if self._can_use_inplace_predict():
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1073, in _can_use_inplace_predict
-    predictor = self.get_params().get("predictor", None)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 134, in download_registry_model
+    print(model)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\base.py", line 260, in __repr__
+    repr_ = pp.pformat(self)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 153, in pformat
+    self._format(object, sio, 0, 0, {}, 0)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 170, in _format
+    rep = self._repr(object, context, level)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\pprint.py", line 404, in _repr
+    repr, readable, recursive = self.format(object, context.copy(),
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 180, in format
+    return _safe_repr(object, context, maxlevels, level,
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 425, in _safe_repr
+    params = _changed_params(object)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\sklearn\utils\_pprint.py", line 91, in _changed_params
+    params = estimator.get_params(deep=False)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
     params.update(cp.__class__.get_params(cp, deep))
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
     config = json.loads(self.get_booster().save_config())
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\core.py", line 1732, in save_config
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 1732, in save_config
     _check_call(_LIB.XGBoosterSaveJsonConfig(
 OSError: exception: access violation reading 0x0000000000000000
-INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
-INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
+INFO:waitress:Serving on http://127.0.0.1:8500
+ERROR:app:Exception on /download_registry_model [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1812, in full_dispatch_request
+    self.ensure_sync(func)()
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 43, in before_first_request
+    with open("model.json") as fil:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.json'
 ERROR:app:Exception on /predict [POST]
 Traceback (most recent call last):
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\pupne\OneDrive\Documents\GitHub\Team_IFT6758\Team_8_IFT_6758\docker-project-template-main\serving\app.py", line 149, in predict
-    y_pred = model.predict(X_test.values)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
-    class_probs = super().predict(
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1138, in predict
-    if self._can_use_inplace_predict():
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 1073, in _can_use_inplace_predict
-    predictor = self.get_params().get("predictor", None)
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 695, in get_params
-    params.update(cp.__class__.get_params(cp, deep))
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\sklearn.py", line 715, in get_params
-    config = json.loads(self.get_booster().save_config())
-  File "C:\Users\pupne\AppData\Local\Programs\Python\Python310\lib\site-packages\xgboost\core.py", line 1732, in save_config
-    _check_call(_LIB.XGBoosterSaveJsonConfig(
-OSError: exception: access violation reading 0x0000000000000000
-INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
-INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
-INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
-INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
-INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
-INFO:app:Requested model exists in local model repository...
-INFO:app:Requested model successfully loaded!
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1812, in full_dispatch_request
+    self.ensure_sync(func)()
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 43, in before_first_request
+    with open("model.json") as fil:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.json'
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
 INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
 INFO:app:Requested model needs to be downloaded from comet
 INFO:app:Requested model successfully loaded!
-INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0},"pred_proba":{"0":0.0647505,"1":0.15482153,"2":0.0915139094,"3":0.0425117984,"4":0.0850760713,"5":0.2268286496,"6":0.3355867267,"7":0.1877750605,"8":0.0406391546,"9":0.0842435211,"10":0.0609074868,"11":0.1128058583,"12":0.1442519426,"13":0.0781121403,"14":0.0277232341,"15":0.1629343778,"16":0.0500902385,"17":0.1331352293,"18":0.0966933221,"19":0.0317615643,"20":0.2069199234,"21":0.3347176611,"22":0.3927597404,"23":0.0915205702,"24":0.0541603044,"25":0.0731918663,"26":0.0416164175,"27":0.2104504704,"28":0.0408383161,"29":0.1048364043,"30":0.108274743,"31":0.0405619815,"32":0.4643453062,"33":0.1310946047,"34":0.180763945,"35":0.0818653703,"36":0.0725161061,"37":0.2103368938,"38":0.1758254468,"39":0.0361412242,"40":0.0730300471,"41":0.141408965,"42":0.0936153084,"43":0.1057877615,"44":0.0180141181,"45":0.1967096776,"46":0.2393450588,"47":0.0472669415,"48":0.0596023351,"49":0.0457490794,"50":0.2342607379,"51":0.0432934761,"52":0.1494648159,"53":0.2567058802,"54":0.0637593865,"55":0.2235731035,"56":0.0280463099,"57":0.2059576213,"58":0.1846071929,"59":0.1375877857,"60":0.1595139503,"61":0.0885239169}}
+ERROR:app:Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\University of Montreal ;)\Fall 2022\Data Science\Project\Part 3\docker-code\serving\app.py", line 171, in predict
+    y_pred = model.predict(X_test.values)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1551, in predict
+    class_probs = super().predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\sklearn.py", line 1140, in predict
+    predts = self.get_booster().inplace_predict(
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\core.py", line 2290, in inplace_predict
+    data, _ = _ensure_np_dtype(data, data.dtype)
+  File "c:\users\rahil\appdata\local\programs\python\python38\lib\site-packages\xgboost\data.py", line 160, in _ensure_np_dtype
+    data = data.astype(np.float32, copy=False)
+ValueError: could not convert string to float: 'Shot'
+INFO:waitress:Serving on http://127.0.0.1:8500
+INFO:app:Starting...
+INFO:app:Downloading default model from comet...
+INFO:app:Loaded the Default Model: .\..\models\xgb3\xgb3.joblib
+INFO:app:{'workspace': 'rachel98', 'model': 'xgb2', 'version': '1.0.0'}
+INFO:app:Requested model needs to be downloaded from comet
+INFO:app:Requested model successfully loaded!
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0},"pred_proba":{"0":0.1258383989,"1":0.0569168478,"2":0.0689453408,"3":0.033803653,"4":0.1205737889,"5":0.0703946948,"6":0.2240884602,"7":0.0993821099,"8":0.1099559143,"9":0.0321195051,"10":0.0531456508,"11":0.2342332304,"12":0.1333962679,"13":0.1203024462,"14":0.2008702457,"15":0.0675214678,"16":0.1480673701,"17":0.1173455641,"18":0.064282082,"19":0.0560241267,"20":0.0822917819,"21":0.0966838077,"22":0.1963346004,"23":0.0224527027,"24":0.1509946436,"25":0.0868172348,"26":0.0549784526,"27":0.0979140326,"28":0.0328764655,"29":0.0805559084,"30":0.0712863877,"31":0.1162787005,"32":0.1347753555,"33":0.0504030474,"34":0.0822026655,"35":0.0770900473,"36":0.0699209496,"37":0.1777722389,"38":0.0999585912,"39":0.1037006453,"40":0.0540639274,"41":0.1013385355,"42":0.1522020996,"43":0.0591125228,"44":0.0940421671,"45":0.091646947,"46":0.0989370048,"47":0.0547733232,"48":0.0745502189,"49":0.0628483444,"50":0.0410689339,"51":0.1856648624,"52":0.0829821229,"53":0.1066335514,"54":0.2769290805,"55":0.2151615918,"56":0.1140857786,"57":0.2969223857,"58":0.0840751976,"59":0.2839293182,"60":0.1421294212,"61":0.2216077298,"62":0.0628026947,"63":0.1263635606,"64":0.1607234776,"65":0.1270683408}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0},"pred_proba":{"0":0.1484165341,"1":0.0526598878,"2":0.1890242994,"3":0.2057690769,"4":0.0993513837,"5":0.0603023432,"6":0.0362464376,"7":0.0616460554,"8":0.1803415716,"9":0.0685689151,"10":0.123407267,"11":0.1073889509,"12":0.0996280462,"13":0.0725275725,"14":0.2315273434,"15":0.0510566905,"16":0.2455546707,"17":0.1488144249,"18":0.1482446492,"19":0.158627063,"20":0.1925939023,"21":0.0791011676,"22":0.1208864823,"23":0.1459084451,"24":0.2410723716,"25":0.2290218025,"26":0.1688605994,"27":0.0854396969,"28":0.0671508387,"29":0.1037672982,"30":0.1172261536,"31":0.1039472297,"32":0.1213746071,"33":0.0752687007,"34":0.0653602481,"35":0.0906625539,"36":0.127051115,"37":0.1549274176,"38":0.0981663987,"39":0.1769048423,"40":0.2752473056,"41":0.1773232073,"42":0.17726174,"43":0.0772928372,"44":0.1827321798,"45":0.1320475042,"46":0.0663819388,"47":0.2942278981,"48":0.1798793226,"49":0.1831709743,"50":0.0882163122,"51":0.037550386,"52":0.1634140164,"53":0.1409864575,"54":0.1869021654,"55":0.0504684411,"56":0.2124455869,"57":0.0491102301,"58":0.089847073,"59":0.1563607305,"60":0.1532122195,"61":0.1691694707,"62":0.0747085661,"63":0.116763927,"64":0.1278825104,"65":0.2064137757}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0},"pred_proba":{"0":0.0271881688,"1":0.0894625485,"2":0.0584990531,"3":0.0214150716,"4":0.0842711702,"5":0.1824528724,"6":0.1088766754,"7":0.2622843087,"8":0.1159582511,"9":0.1822492778,"10":0.1638964713,"11":0.0894014239,"12":0.1206400692,"13":0.0741814971,"14":0.1942685992,"15":0.1185768619,"16":0.0540210307,"17":0.2141468376,"18":0.069554843,"19":0.090109624,"20":0.1683526337,"21":0.2040674239,"22":0.0642185807,"23":0.0556159206,"24":0.0333012082,"25":0.2087733746,"26":0.09440393,"27":0.3970165551,"28":0.0737734064,"29":0.3262986839,"30":0.2710672319,"31":0.0392506495,"32":0.0930822566,"33":0.1566304415,"34":0.1666023135,"35":0.2901217341,"36":0.1899970025,"37":0.0413025282,"38":0.0468731448,"39":0.0690102428,"40":0.1454084069,"41":0.0817759857,"42":0.0430838875,"43":0.0499267802,"44":0.1556051224,"45":0.1532250494,"46":0.0346391238,"47":0.2313550413,"48":0.3152741492,"49":0.0689865649,"50":0.1325418353,"51":0.0502186045,"52":0.1643735766,"53":0.2245748192,"54":0.0699753016}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0,"69":0,"70":0,"71":0,"72":0,"73":0},"pred_proba":{"0":0.0957395509,"1":0.0926757902,"2":0.1707846969,"3":0.2545307875,"4":0.1209075451,"5":0.0225187615,"6":0.1367028058,"7":0.0381020308,"8":0.0402167253,"9":0.2206484675,"10":0.2521114647,"11":0.0514260493,"12":0.0805258751,"13":0.1073638126,"14":0.0852605477,"15":0.0253897067,"16":0.1506073475,"17":0.3134632409,"18":0.0568664968,"19":0.1784447432,"20":0.1091013253,"21":0.1598971337,"22":0.3517103195,"23":0.2219364196,"24":0.1157810017,"25":0.0376968421,"26":0.1479923576,"27":0.079374373,"28":0.1646550298,"29":0.1162173823,"30":0.2553201616,"31":0.0913144425,"32":0.2121435702,"33":0.2204473913,"34":0.0358183719,"35":0.1324862689,"36":0.1379799098,"37":0.1190894023,"38":0.0510576069,"39":0.1444246471,"40":0.2272171974,"41":0.0954915062,"42":0.1923261583,"43":0.2442301512,"44":0.0598599538,"45":0.275033623,"46":0.0279974248,"47":0.0722274259,"48":0.0803124979,"49":0.0640476793,"50":0.0533489995,"51":0.0927515402,"52":0.1608711481,"53":0.2483433187,"54":0.0742394477,"55":0.1787841767,"56":0.1299436539,"57":0.1586991698,"58":0.0479324088,"59":0.1337975711,"60":0.0982533097,"61":0.1102374047,"62":0.0626794398,"63":0.0841892213,"64":0.0273489319,"65":0.073648721,"66":0.2674770653,"67":0.1414949149,"68":0.2261793911,"69":0.1331066489,"70":0.0906857327,"71":0.1776926219,"72":0.0514468327,"73":0.132156983}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0},"pred_proba":{"0":0.0436587073,"1":0.0628383011,"2":0.1454911083,"3":0.1072521582,"4":0.0318736397,"5":0.1422735751,"6":0.0225059949,"7":0.0968470275,"8":0.0902303085,"9":0.3331983685,"10":0.1198141724,"11":0.1424741149,"12":0.0452913865,"13":0.125824526,"14":0.1792438477,"15":0.1017444432,"16":0.0649564341,"17":0.2190706283,"18":0.1028141454,"19":0.0394105464,"20":0.0616739765,"21":0.1986509264,"22":0.0886134654,"23":0.0487006903,"24":0.2912317812,"25":0.2681393921,"26":0.0150866015,"27":0.0345556736,"28":0.0522628948,"29":0.196242705,"30":0.4092367291,"31":0.2215040028,"32":0.1648228914,"33":0.1442734599,"34":0.2426328063,"35":0.0326178223,"36":0.2276250869,"37":0.4190485775,"38":0.1401538998,"39":0.1603810489,"40":0.1119122356,"41":0.1789539307,"42":0.088365525,"43":0.0804528445,"44":0.2139208913,"45":0.0637345389,"46":0.2473457605,"47":0.0630926639,"48":0.1420926005,"49":0.1660519242,"50":0.1423971355,"51":0.203187421,"52":0.2747092545,"53":0.1336854398,"54":0.1279212832,"55":0.0627036616,"56":0.0857422426,"57":0.1386228502,"58":0.047212109,"59":0.0635429472,"60":0.0676191971,"61":0.066446498,"62":0.0694494843,"63":0.1068635434,"64":0.1953198761,"65":0.1827309132,"66":0.1431557238,"67":0.0621327795,"68":0.1229827777}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0,"69":0,"70":0,"71":0,"72":0,"73":0,"74":0},"pred_proba":{"0":0.0987513885,"1":0.1175847501,"2":0.2844209969,"3":0.3578543961,"4":0.1162607074,"5":0.0534801446,"6":0.1234516501,"7":0.1303199083,"8":0.1307510883,"9":0.062642701,"10":0.0936633646,"11":0.2364007086,"12":0.0562076159,"13":0.0709082857,"14":0.2671706378,"15":0.1044965088,"16":0.2043827325,"17":0.1243222356,"18":0.068104066,"19":0.1250834763,"20":0.095567435,"21":0.0621164143,"22":0.0852318779,"23":0.1457594782,"24":0.1336166561,"25":0.0318721235,"26":0.0488095172,"27":0.0500182249,"28":0.1322200894,"29":0.1758839339,"30":0.1178546026,"31":0.0723687857,"32":0.0448467284,"33":0.0695080012,"34":0.0746617019,"35":0.0804309323,"36":0.0483608395,"37":0.0144174853,"38":0.070504576,"39":0.0968690664,"40":0.0231409632,"41":0.0995504558,"42":0.0771905258,"43":0.0679068938,"44":0.3735076785,"45":0.0672511682,"46":0.1710625589,"47":0.0514652431,"48":0.0540885739,"49":0.0796688423,"50":0.1033322886,"51":0.0854353309,"52":0.2060458958,"53":0.1737761945,"54":0.0477538258,"55":0.0528372377,"56":0.0997351333,"57":0.2332047671,"58":0.0767861754,"59":0.1632698625,"60":0.3535389304,"61":0.2442653924,"62":0.0557012856,"63":0.0395242758,"64":0.0430193059,"65":0.2157355547,"66":0.0918904096,"67":0.1163751557,"68":0.1549225301,"69":0.161363855,"70":0.2245260626,"71":0.1305577308,"72":0.0965984613,"73":0.345225364,"74":0.0340474285}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":1,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0},"pred_proba":{"0":0.1103221923,"1":0.0614688508,"2":0.2280747145,"3":0.0873738229,"4":0.2495813817,"5":0.1539827287,"6":0.021665832,"7":0.1636027843,"8":0.1830838621,"9":0.2311694324,"10":0.0552182794,"11":0.1431977898,"12":0.070707418,"13":0.0445811227,"14":0.1098691151,"15":0.1120596379,"16":0.1415232271,"17":0.1146924794,"18":0.0762902275,"19":0.0931850523,"20":0.0554674044,"21":0.0731146634,"22":0.1041556746,"23":0.0811103135,"24":0.2238372415,"25":0.0687018335,"26":0.0386931896,"27":0.1211581826,"28":0.0813375041,"29":0.2132695913,"30":0.1316674799,"31":0.084775649,"32":0.1319296956,"33":0.2957544923,"34":0.526861012,"35":0.1224401072,"36":0.076801829,"37":0.2612459362,"38":0.0791566744,"39":0.2269569337,"40":0.1111411899,"41":0.2754316926,"42":0.1467263401,"43":0.2078214884,"44":0.0523707159,"45":0.050640244,"46":0.1987549067,"47":0.1015896425,"48":0.2367664874,"49":0.160658583,"50":0.2492015362,"51":0.038449239,"52":0.0988582969,"53":0.4641187191,"54":0.0804132298,"55":0.1059596241,"56":0.0737033486,"57":0.153684184,"58":0.0381744057,"59":0.1480855644,"60":0.121136196,"61":0.0935593322,"62":0.0821400359,"63":0.258171469,"64":0.0950573683,"65":0.1147316992,"66":0.4740619659,"67":0.0241977274,"68":0.1025077924}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0},"pred_proba":{"0":0.1257219911,"1":0.1208509579,"2":0.1003553569,"3":0.0490472503,"4":0.0534518138,"5":0.116593197,"6":0.052044943,"7":0.1227651015,"8":0.0789090618,"9":0.330372721,"10":0.362295717,"11":0.3971374035,"12":0.4010810256,"13":0.116541557,"14":0.1573452502,"15":0.0810234919,"16":0.1745124012,"17":0.1939985454,"18":0.1238443777,"19":0.1883179098,"20":0.0295033678,"21":0.0417846479,"22":0.1402367651,"23":0.080566749,"24":0.0485270135,"25":0.2426337302,"26":0.0523380786,"27":0.0736825839,"28":0.0599022396,"29":0.1051543653,"30":0.1248508096,"31":0.1904885322,"32":0.2994069159,"33":0.0234165471,"34":0.0371849835,"35":0.1797784865,"36":0.2113316357,"37":0.0781765431,"38":0.0649735704,"39":0.1417613328,"40":0.083842352,"41":0.0554453023,"42":0.1041482911,"43":0.0742162019,"44":0.0534417555,"45":0.2064551115,"46":0.0946175754,"47":0.0776438117,"48":0.0388390943,"49":0.0675652698,"50":0.3034893274,"51":0.0794161782,"52":0.2701205313,"53":0.0426651649,"54":0.0480893292,"55":0.2682747543,"56":0.0738283247,"57":0.0618130751,"58":0.1593523622}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0},"pred_proba":{"0":0.0511648096,"1":0.2031985819,"2":0.141038537,"3":0.0561498217,"4":0.1566637009,"5":0.0897326767,"6":0.1130881831,"7":0.2384771407,"8":0.1291329265,"9":0.1548891366,"10":0.0913047642,"11":0.2175961882,"12":0.224759981,"13":0.2385076731,"14":0.1147925407,"15":0.052296862,"16":0.215566501,"17":0.0566704944,"18":0.0680776685,"19":0.2981335223,"20":0.130365923,"21":0.0828938112,"22":0.0508457981,"23":0.127834022,"24":0.1398947388,"25":0.098588869,"26":0.2903865874,"27":0.0817835629,"28":0.0963279679,"29":0.0812282339,"30":0.1771306396,"31":0.1739899367,"32":0.064642556,"33":0.1129507944,"34":0.2911694944,"35":0.1822499633,"36":0.0659545362,"37":0.1383685917,"38":0.0486589521,"39":0.0682084858,"40":0.1205618158,"41":0.1801169515,"42":0.0587277561,"43":0.1189932898,"44":0.182199046,"45":0.0950292721,"46":0.113774173,"47":0.0601758361,"48":0.206059292,"49":0.0653203726,"50":0.0824807361,"51":0.0724586919,"52":0.1159946918,"53":0.0883677006,"54":0.081667617,"55":0.0722007006,"56":0.0335106775,"57":0.2079401612,"58":0.1283772737,"59":0.1445825249}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0,"69":0,"70":0,"71":0,"72":0,"73":0,"74":0,"75":0},"pred_proba":{"0":0.0450274646,"1":0.0561290868,"2":0.0840706229,"3":0.1188188344,"4":0.1351090372,"5":0.0378049538,"6":0.0461071953,"7":0.050388258,"8":0.1289214939,"9":0.032351587,"10":0.0903910622,"11":0.1792338043,"12":0.2199196517,"13":0.0475287363,"14":0.1849849522,"15":0.1023983508,"16":0.081894882,"17":0.0376278684,"18":0.1283915937,"19":0.0582639053,"20":0.0697570145,"21":0.2150262594,"22":0.0998411924,"23":0.0950437039,"24":0.0419429876,"25":0.0339751579,"26":0.1143544614,"27":0.1374103725,"28":0.1392260641,"29":0.1941979825,"30":0.0852991268,"31":0.0424182937,"32":0.0938880667,"33":0.1926946044,"34":0.1870586723,"35":0.0765662789,"36":0.1487736553,"37":0.0574921817,"38":0.3101802468,"39":0.2579193115,"40":0.0919363052,"41":0.3064782023,"42":0.1175630093,"43":0.1846252382,"44":0.3270344734,"45":0.0936192945,"46":0.1225791052,"47":0.0428187847,"48":0.0699176192,"49":0.0499901399,"50":0.1305518299,"51":0.0670184568,"52":0.0970989019,"53":0.145351693,"54":0.2947458625,"55":0.1663518399,"56":0.0832826421,"57":0.2253042758,"58":0.169744283,"59":0.1097030044,"60":0.039858751,"61":0.059396483,"62":0.2008040398,"63":0.1427083164,"64":0.0401370972,"65":0.0253586154,"66":0.1411454976,"67":0.2697625458,"68":0.330280304,"69":0.097054705,"70":0.1265804917,"71":0.0578498915,"72":0.2783737779,"73":0.0635539666,"74":0.069641009,"75":0.1006599665}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0},"pred_proba":{"0":0.0768458471,"1":0.044179365,"2":0.1985760629,"3":0.0397941954,"4":0.2012021542,"5":0.1940177977,"6":0.1746267229,"7":0.0933724418,"8":0.0696120337,"9":0.0375942364,"10":0.0673182085,"11":0.2512690723,"12":0.0557057746,"13":0.1535527557,"14":0.2376420945,"15":0.1622604132,"16":0.2741556466,"17":0.1192250773,"18":0.044539921,"19":0.0577871874,"20":0.074543424,"21":0.0219744481,"22":0.2070838213,"23":0.0290346686,"24":0.2205546647,"25":0.1925759166,"26":0.1175738722,"27":0.1018968523,"28":0.3323275447,"29":0.1129120067,"30":0.1084340513,"31":0.0623419061,"32":0.2097643614,"33":0.0368101373,"34":0.2295630425,"35":0.2228454351,"36":0.0309377536,"37":0.0657059029,"38":0.2879740894,"39":0.1398919821,"40":0.0600447841,"41":0.126544863,"42":0.1863643825,"43":0.1118683442,"44":0.3090221882,"45":0.1292226315,"46":0.1639872491,"47":0.0402596258,"48":0.0935394168,"49":0.0862094238,"50":0.0900355279,"51":0.1598914713,"52":0.0531591102,"53":0.318164587,"54":0.0494606644,"55":0.1412185729,"56":0.1046627462,"57":0.2685759366,"58":0.0450431518,"59":0.0924385935,"60":0.1216423735,"61":0.0490196124,"62":0.0981504619}}
+INFO:app:{"predictions":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0},"pred_proba":{"0":0.0841400623,"1":0.051587157,"2":0.1752427369,"3":0.1248210222,"4":0.02973032,"5":0.183443889,"6":0.157034263,"7":0.0468754694,"8":0.4078537226,"9":0.1319551617,"10":0.1967869997,"11":0.122396335,"12":0.1621373445,"13":0.11764054,"14":0.2129276544,"15":0.1203947589,"16":0.0305627026,"17":0.0468888804,"18":0.1286398172,"19":0.0393549763,"20":0.081171371,"21":0.1483367383,"22":0.0659081116,"23":0.1533646733,"24":0.1725129634,"25":0.0380088016,"26":0.1846397519,"27":0.0896772668,"28":0.1241913363,"29":0.1452194154,"30":0.1118006334,"31":0.1627595127,"32":0.1556537002,"33":0.0426638387,"34":0.0660627037,"35":0.1104959399,"36":0.0541023575,"37":0.2259329408,"38":0.4546300471,"39":0.0764922872,"40":0.0527355038,"41":0.0883505344,"42":0.1436701864,"43":0.3985461891,"44":0.1851537228,"45":0.0583216622,"46":0.1788315475,"47":0.2576857209,"48":0.2382015288,"49":0.3116428852,"50":0.2793073952,"51":0.163683027,"52":0.3224058151,"53":0.2954116166}}

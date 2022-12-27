@@ -28,17 +28,17 @@ class ServingClient:
         Args:
             X (Dataframe): Input dataframe to submit to the prediction service.
         """
-        print("we are here")
+        # print("we are here")
         logger.info("Initializing request to generate predictions")
         # print(X)
         try:
             r = requests.post(
-                f"{self.base_url}/predict", 
+                f"{self.base_url}/predict",
                 json=X.to_json(orient = 'table')
             )
             logger.info("Successfully generated predictions")
-            print(r)
-            print(r.json())
+            # print(r)
+            # print(r.json())
             return r.json()
         except Exception as e:
             print(e)
@@ -77,6 +77,8 @@ class ServingClient:
         self.model = model
         self.version = version
         self.model_filename = f"{workspace}_{model}_{version}"
+        print("we are inside serving cloent")
+        print(self.model_filename)
         # print(self.base_url)
         r = requests.post(
             f"{self.base_url}/download_registry_model", 

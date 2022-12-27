@@ -8,6 +8,7 @@ gunicorn can be installed via:
     $ pip install gunicorn
 
 """
+import time
 import os
 from pathlib import Path
 import logging
@@ -16,14 +17,16 @@ import sklearn
 import pandas as pd
 import joblib
 from utils_ import download_model
+import json
 
 # import ift6758
 
 
 LOG_FILE = os.environ.get("FLASK_LOG", "flask.log")
-MODEL_REPO = os.path.join('.','models')
-global model
-global model_requested
+MODEL_REPO = os.path.join('.', '..','models')
+# MODEL_REPO = '\models'
+# global model
+# global model_requested
 app = Flask(__name__)
 
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
@@ -36,27 +39,35 @@ def before_first_request():
     """
 
     global model
-    global model_requested
+    # global model_requested
+    with open("model.json", 'w') as fil:
+        json.dump({"model":'xgb3'}, fil)
 
     print('Inside first request')
     app.logger.info('Starting...')
-    default_model = 'xgb2'
-    model_requested = default_model
+    default_model = 'xgb3'
+    # model_requested = default_model
 
-    model_path = os.path.join(MODEL_REPO, default_model+"1.0.0" +'.joblib')
+    model_path = os.path.join(MODEL_REPO, default_model, default_model +'.joblib')
     print(model_path)
-    print(os.path.exists(model_path))
+    # print(os.path.exists(model_path))
     if os.path.exists(model_path):
         app.logger.info("Default model exists in local model repository...")
         pass
     else:
         app.logger.info("Downloading default model from comet...")
         print("here")
-        download_model("rachel98","ift-6758-team-8","DPA8v9aBQumK4h2GAkMp6RA5d","xgb2","1.0.0")
-        os.rename( os.path.join(MODEL_REPO, default_model+'.joblib'), model_path)
+        download_model("rachel98","ift-6758-team-8","DPA8v9aBQumK4h2GAkMp6RA5d","xgb3","1.0.2")
+        # os.rename( os.path.join(MODEL_REPO, default_model+'.joblib'), model_path)
         print("downloaded")
-    model = joblib.load(model_path)
-    # print(model)
+    print("deafaul model downloaded: ", default_model)
+    f = open(model_path, "rb")
+    model = joblib.load(f)
+    # model = pk.load(f)
+    f.close()
+
+    print("before first req- our model is")
+    print(model)
     app.logger.info("Loaded the Default Model: " + model_path)
     pass
 
@@ -88,11 +99,12 @@ def download_registry_model():
         }
     
     """
+    time.sleep(1)
     global model
-    global model_requested
+    # global model_requested
     # Get POST json data
     json = request.get_json()
-    print(json)
+    # print(json)
     app.logger.info(json)
 
     # TODO: check to see if the model you are querying for is already downloaded
@@ -103,16 +115,25 @@ def download_registry_model():
 
     # TODO: if yes, load that model and write to the log about the model change.  
     # eg: app.logger.info(<LOG STRING>)
-    model_path = os.path.join(MODEL_REPO, model_requested + version+'.joblib')
+    model_path = os.path.join(MODEL_REPO, model_requested, model_requested +'.joblib')
     
     if os.path.exists(model_path):
         app.logger.info("Requested model exists in local model repository...")
+        pass
     else:
         app.logger.info('Requested model needs to be downloaded from comet')
         download_model(workspace, "ift-6758-team-8", "DPA8v9aBQumK4h2GAkMp6RA5d", model_requested, version)
-        os.rename(os.path.join(MODEL_REPO, model_requested +'.joblib'), model_path)
+        # os.rename(os.path.join(MODEL_REPO, model_requested +'.joblib'), model_path)
+    # time.sleep(1)
     print("loading model ", model_path)
-    model = joblib.load(model_path)
+    f = open(model_path, "rb")
+    print("im inside loading #################")
+    model = joblib.load(f)
+        # model2 = pk.load(f)
+    f.close()
+    # time.sleep(2)
+    print("download registry- our loaded model is ")
+    print(model)
     # app.logger.info()
     
     # TODO: if no, try downloading the model: if it succeeds, load that model and write to the log
@@ -128,7 +149,7 @@ def download_registry_model():
 
     app.logger.info(response)
     return jsonify(response)  # response must be json serializable!
-
+    # pass
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -140,17 +161,17 @@ def predict():
     # Get POST json data
     print('Inside Predict endpoint')
     json = request.get_json()
-    print("json is loaded")
-    print("the model is ", model_requested)
-    # print("json is ", json)
+    # print(json)
+
     X_test = pd.read_json(json, orient='table', convert_dates=False)
-    print("Json is oriented")
-    print(X_test)
+    print("app.py model is")
+    # model = joblib.load("./models/xgb2.joblib")
+    # print(X_test)
+    print(model)
     y_pred = model.predict(X_test.values)
-    print("i am HERE")
-    print(y_pred)
+    # print(y_pred)
     y_pred_prob = model.predict_proba(X_test.values)[:,1]
-    print("y pred prob", y_pred_prob)
+    # print("y pred prob", y_pred_prob)
     # TODO:
     # raise NotImplementedError("TODO: implement this enpdoint")
     

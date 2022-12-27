@@ -5,7 +5,7 @@ import numpy as np
 import math
 import copy
 import os
-
+import matplotlib.pyplot as plt
 
 def get_data(GAME_ID):
     url = 'https://statsapi.web.nhl.com/api/v1/game/{}/feed/live/'.format(GAME_ID)
@@ -324,6 +324,40 @@ def get_new_events_only(all_data, tracker_game):
     return all_data, last_val_event
 
 
+def no_of_events(df_game_events):
+    print(df_game_events.keys())
+    df_game_events['goal'] = df_game_events['goal'].replace(0, "Shot")
+    df_game_events['goal'] = df_game_events['goal'].replace(1, "Goal")
+    df_shot_goal = df_game_events.groupby(['goal','secondary_type']).size().reset_index().pivot(columns='goal', index='secondary_type', values=0)
+    df_shot_goal = df_shot_goal.reindex(columns=['Shot','Goal'])
+    df_shot_goal.sort_values(['Shot','Goal'], ascending = [True, True], inplace=True)
+
+    plt.rcParams["figure.figsize"] = (8, 10)
+    df_shot_goal.plot(kind='bar')
+    plt.title("goals/shots per Types of Shots")
+    plt.xlabel('Shot type')
+    plt.ylabel('Number of shot/goal')
+    plt.xticks(rotation=90)
+    plt.subplots_adjust(top=0.925,
+                        bottom=0.20,
+                        left=0.07,
+                        right=0.90,
+                        hspace=0.01,
+                        wspace=0.01)
+    plt.show()
+    plt.savefig("shots.jpg")
+
+    df_total_shot_goal = df_shot_goal['Shot']+df_shot_goal['Goal']
+    df_shot_goal['Total Shots'] = df_total_shot_goal
+    df_shot_goal['Success Rate'] = df_shot_goal['Goal']/df_total_shot_goal
+    df_shot_goal=df_shot_goal.fillna(0)
+    # df_shot_goal['goal_percent'] = (df_shot_goal["Goal"]/df_shot_goal["Goal"].sum()) *100
+    print(df_shot_goal)
+    df_shot_goal.to_csv("df_shot_goal.csv")
+
+    return
+
+
 def ping_game_client(GAME_ID):
 
     data = get_data(GAME_ID)
@@ -375,6 +409,8 @@ def ping_game_client(GAME_ID):
             else:
                 goal_shot_df = all_events[(all_events['event'] == 'Goal') | (all_events['event'] == 'Shot')]
                 my_df, last_shot_idx = filter_features(all_events, goal_shot_df)
+                my_df2 = copy.deepcopy(my_df)
+                no_of_events(my_df2)
                 final_df = preprocess_data2(my_df)
 
             # print(final_df)
@@ -390,7 +426,8 @@ def ping_game_client(GAME_ID):
 
         with open("tracker.json", "w") as file:
             json.dump(old_tracker, file)
-        # print(final_df.iloc[0])
+
+
         return final_df, away_team, home_team, cur_period, remaining_time, score
 
 # GAME_ID = "2021020324"
